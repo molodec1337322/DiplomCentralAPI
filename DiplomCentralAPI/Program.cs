@@ -1,4 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 /*
@@ -9,8 +12,18 @@ app.Run();
 
 app.UseHttpsRedirection();
 
-//app.UseAuthorization();
+app.UseRouting();
 
-//app.MapControllers();
+/*
+app.MapControllerRoute(
+    name: "api",
+    pattern: "api/{controller=Camera}/");
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+*/
+
+app.MapControllers();
 
 app.Run();
