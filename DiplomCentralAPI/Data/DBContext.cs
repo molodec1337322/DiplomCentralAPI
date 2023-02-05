@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DiplomCentralAPI.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DiplomCentralAPI.Data
 {
@@ -7,5 +8,10 @@ namespace DiplomCentralAPI.Data
         public DBContext(DbContextOptions<DBContext> options) : base(options)  
         {
         }
+
+        DbSet<Handler> handlers;
+        DbSet<Schema> schemas;
+        DbSet<Experiment> experiments;
+        DbSet<Photo> photos;
     }
 }
