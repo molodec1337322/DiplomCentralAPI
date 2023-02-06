@@ -1,38 +1,41 @@
 ﻿using DiplomCentralAPI.Data.Interfaces;
 using DiplomCentralAPI.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DiplomCentralAPI.Data.Repository.Postgres
 {
     public class SchemaRepository : IRepository<Schema>
     {
+        private readonly DBContext _DBContext;
+
+        public SchemaRepository(DBContext dbContext)
+        {
+            _DBContext = dbContext;
+        }
+
+
         public Schema Add(Schema entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Schemas.Add(entity);
+            return entity;
         }
 
         public bool Delete(Schema entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Schemas.Remove(entity);
+            return true;
         }
 
-        public Schema Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public Schema Get(int id) => _DBContext.Schemas.Find(id);
 
-        public IEnumerable<Schema> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<Schema> GetAll() => _DBContext.Schemas.ToList();
 
-        public Task<int> SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<int> SaveChanges() => await _DBContext.SaveChangesAsync();
 
         public Schema Update(Schema entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Schemas.Update(entity);
+            return entity;
         }
     }
 }

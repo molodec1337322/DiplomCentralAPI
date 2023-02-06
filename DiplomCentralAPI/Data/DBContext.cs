@@ -9,9 +9,9 @@ namespace DiplomCentralAPI.Data
         {
         }
 
-        DbSet<Handler> handlers;
-        DbSet<Schema> schemas;
-        DbSet<Experiment> experiments;
-        DbSet<Photo> photos;
+        public DbSet<Handler> Handlers;
+        public DbSet<Schema> Schemas;
+        public DbSet<Experiment> Experiments;
+        public DbSet<Photo> Photos;
     }
 }

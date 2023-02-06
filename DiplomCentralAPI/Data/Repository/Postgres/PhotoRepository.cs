@@ -5,34 +5,36 @@ namespace DiplomCentralAPI.Data.Repository.Postgres
 {
     public class PhotoRepository : IRepository<Photo>
     {
+
+        private readonly DBContext _DBContext;
+
+        public PhotoRepository(DBContext dbContext) 
+        { 
+            _DBContext = dbContext;
+        }
+
         public Photo Add(Photo entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Photos.Add(entity);
+            return entity;
         }
 
         public bool Delete(Photo entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Photos.Remove(entity);
+            return true;
         }
 
-        public Photo Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public Photo Get(int id) => _DBContext.Photos.Find(id);
 
-        public IEnumerable<Photo> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<Photo> GetAll() => _DBContext.Photos.ToList();
 
-        public Task<int> SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<int> SaveChanges() => await _DBContext.SaveChangesAsync();
 
         public Photo Update(Photo entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Photos.Update(entity);
+            return entity;
         }
     }
 }

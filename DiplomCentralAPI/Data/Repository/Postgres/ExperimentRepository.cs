@@ -5,34 +5,36 @@ namespace DiplomCentralAPI.Data.Repository.Postgres
 {
     public class ExperimentRepository : IRepository<Experiment>
     {
+
+        private readonly DBContext _DBContext;
+
+        public ExperimentRepository(DBContext dbContext)
+        {
+            _DBContext = dbContext;
+        }
+
         public Experiment Add(Experiment entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Experiments.Add(entity);
+            return entity;
         }
 
         public bool Delete(Experiment entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Experiments.Remove(entity);
+            return true;
         }
 
-        public Experiment Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public Experiment Get(int id) => _DBContext.Experiments.Find(id);
 
-        public IEnumerable<Experiment> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<Experiment> GetAll() => _DBContext.Experiments.ToList();
 
-        public Task<int> SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<int> SaveChanges() => await _DBContext.SaveChangesAsync();
 
         public Experiment Update(Experiment entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Experiments.Update(entity);
+            return entity;
         }
     }
 }

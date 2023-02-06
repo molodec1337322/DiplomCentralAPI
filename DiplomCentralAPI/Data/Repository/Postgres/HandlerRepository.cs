@@ -5,34 +5,36 @@ namespace DiplomCentralAPI.Data.Repository.Postgres
 {
     public class HandlerRepository : IRepository<Handler>
     {
+
+        private readonly DBContext _DBContext;
+
+        public HandlerRepository(DBContext dbContext)
+        {
+            _DBContext = dbContext;
+        }
+
         public Handler Add(Handler entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Handlers.Add(entity);
+            return entity;
         }
 
         public bool Delete(Handler entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Handlers.Remove(entity);
+            return true;
         }
 
-        public Handler Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public Handler Get(int id) => _DBContext.Handlers.Find(id);
 
-        public IEnumerable<Handler> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<Handler> GetAll() => _DBContext.Handlers.ToList();
 
-        public Task<int> SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<int> SaveChanges() => await _DBContext.SaveChangesAsync();
 
         public Handler Update(Handler entity)
         {
-            throw new NotImplementedException();
+            _DBContext.Handlers.Update(entity);
+            return entity;
         }
     }
 }
