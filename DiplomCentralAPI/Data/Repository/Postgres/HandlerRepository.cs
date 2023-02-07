@@ -6,9 +6,9 @@ namespace DiplomCentralAPI.Data.Repository.Postgres
     public class HandlerRepository : IRepository<Handler>
     {
 
-        private readonly DBContext _DBContext;
+        private readonly MyDBContext _DBContext;
 
-        public HandlerRepository(DBContext dbContext)
+        public HandlerRepository(MyDBContext dbContext)
         {
             _DBContext = dbContext;
         }

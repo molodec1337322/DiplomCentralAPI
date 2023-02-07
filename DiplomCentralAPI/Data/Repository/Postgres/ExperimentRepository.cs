@@ -6,9 +6,9 @@ namespace DiplomCentralAPI.Data.Repository.Postgres
     public class ExperimentRepository : IRepository<Experiment>
     {
 
-        private readonly DBContext _DBContext;
+        private readonly MyDBContext _DBContext;
 
-        public ExperimentRepository(DBContext dbContext)
+        public ExperimentRepository(MyDBContext dbContext)
         {
             _DBContext = dbContext;
         }

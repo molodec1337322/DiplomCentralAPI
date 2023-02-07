@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DiplomCentralAPI.Controllers
 {
-    [Route("api/Handler")]
+    [Route("api/handler")]
     public class HandlerController : Controller
     {
         private readonly IRepository<Handler> _handlerRepository;
@@ -15,7 +15,7 @@ namespace DiplomCentralAPI.Controllers
         }
 
         [HttpGet]
-        [Route("Test")]
+        [Route("test")]
         public async Task<IActionResult> Test()
         {
             return Ok("Darova, cheliki");

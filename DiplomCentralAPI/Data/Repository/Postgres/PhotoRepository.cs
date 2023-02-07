@@ -6,9 +6,9 @@ namespace DiplomCentralAPI.Data.Repository.Postgres
     public class PhotoRepository : IRepository<Photo>
     {
 
-        private readonly DBContext _DBContext;
+        private readonly MyDBContext _DBContext;
 
-        public PhotoRepository(DBContext dbContext) 
+        public PhotoRepository(MyDBContext dbContext) 
         { 
             _DBContext = dbContext;
         }

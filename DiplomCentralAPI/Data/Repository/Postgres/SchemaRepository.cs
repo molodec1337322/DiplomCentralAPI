@@ -6,9 +6,9 @@ namespace DiplomCentralAPI.Data.Repository.Postgres
 {
     public class SchemaRepository : IRepository<Schema>
     {
-        private readonly DBContext _DBContext;
+        private readonly MyDBContext _DBContext;
 
-        public SchemaRepository(DBContext dbContext)
+        public SchemaRepository(MyDBContext dbContext)
         {
             _DBContext = dbContext;
         }
