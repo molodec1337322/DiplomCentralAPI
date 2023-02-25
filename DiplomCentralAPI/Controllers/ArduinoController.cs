@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ArduinoUploader;
+using ArduinoUploader.Hardware;
+using DiplomCentralAPI.Controllers.Utils;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DiplomCentralAPI.Controllers
 {
@@ -9,8 +12,21 @@ namespace DiplomCentralAPI.Controllers
 
         [HttpPost]
         [Route("/setCommand")]
-        public IActionResult SetCommand() 
+        public IActionResult SetCommand(int USBPort) 
         {
+            string port = "COM" + USBPort;
+
+            ArduinoMegaProgramm programm = new ArduinoMegaProgramm();
+            string programmString = programm.GetProgramm(100, 100, 100);
+
+            var uploader = new ArduinoSketchUploader(
+                new ArduinoSketchUploaderOptions()
+                {
+                    PortName = port,
+                    ArduinoModel = ArduinoModel.Mega2560
+                });
+
+            uploader.UploadSketch();
 
             return Ok();
         }

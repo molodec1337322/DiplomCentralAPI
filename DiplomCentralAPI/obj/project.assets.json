@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "ArduinoUploader.NET/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "IntelHexFormatReader": "2.2.3",
+          "SerialPortStream": "2.4.0"
+        },
+        "compile": {
+          "lib/net6.0/ArduinoUploader.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/ArduinoUploader.dll": {}
+        }
+      },
       "AspNetCore.RouteAnalyzer/0.5.3": {
         "type": "package",
         "dependencies": {
@@ -30,6 +43,18 @@
           "lib/net6.0/Humanizer.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "IntelHexFormatReader/2.2.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.6/IntelHexFormatReader.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/IntelHexFormatReader.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -2240,6 +2265,30 @@
           }
         }
       },
+      "SerialPortStream/2.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "1.1.2",
+          "Microsoft.Win32.Registry": "4.3.0",
+          "NETStandard.Library": "1.6.1",
+          "System.Collections.Specialized": "4.3.0",
+          "System.Diagnostics.FileVersionInfo": "4.3.0",
+          "System.Diagnostics.TraceSource": "4.3.0",
+          "System.Threading.Overlapped": "4.3.0",
+          "System.Threading.Thread": "4.3.0",
+          "System.Threading.ThreadPool": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.5/RJCP.SerialPortStream.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard1.5/RJCP.SerialPortStream.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2364,7 +2413,7 @@
           "System.Threading": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {
+          "ref/netstandard1.3/System.Collections.Specialized.dll": {
             "related": ".xml"
           }
         },
@@ -2494,7 +2543,7 @@
           "System.Runtime.InteropServices": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {
+          "ref/netstandard1.3/System.Diagnostics.FileVersionInfo.dll": {
             "related": ".xml"
           }
         },
@@ -2536,6 +2585,35 @@
         "compile": {
           "ref/netstandard1.0/System.Diagnostics.Tools.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "System.Diagnostics.TraceSource/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "runtime.native.System": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Diagnostics.TraceSource.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Diagnostics.TraceSource.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Diagnostics.TraceSource.dll": {
+            "assetType": "runtime",
+            "rid": "win"
           }
         }
       },
@@ -3575,6 +3653,30 @@
           "lib/netstandard1.3/System.Threading.dll": {}
         }
       },
+      "System.Threading.Overlapped/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Handles": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Overlapped.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Threading.Overlapped.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Threading.Overlapped.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Threading.Tasks/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3624,12 +3726,27 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
           "lib/netstandard1.3/System.Threading.Thread.dll": {}
+        }
+      },
+      "System.Threading.ThreadPool/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Handles": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Threading.ThreadPool.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Threading.ThreadPool.dll": {}
         }
       },
       "System.Threading.Timer/4.3.0": {
@@ -3782,6 +3899,19 @@
     }
   },
   "libraries": {
+    "ArduinoUploader.NET/6.0.1": {
+      "sha512": "dWYbxxW7vi1ix2/wXNzHnXhTBlZrnxPfbKMxjq4JaaptLoL4LjBmKvwtfHt/z0E6ctNZ3aHLAPhOtWvEnRShVA==",
+      "type": "package",
+      "path": "arduinouploader.net/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "arduinouploader.net.6.0.1.nupkg.sha512",
+        "arduinouploader.net.nuspec",
+        "lib/net6.0/ArduinoUploader.dll"
+      ]
+    },
     "AspNetCore.RouteAnalyzer/0.5.3": {
       "sha512": "2qQdI7gX+qQjpFKEDccgpipLi5QId/Omhai4S4oAGJwEtk5CNK/dnpt9s2WlMKxy3DmXaCE8GnR50vF4l/DbbQ==",
       "type": "package",
@@ -3811,6 +3941,20 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "IntelHexFormatReader/2.2.3": {
+      "sha512": "Cfj9KYrWDNFIRgn7AN1FQUHjf9IIQU5qy/z6R+j5oToLWyDH/BZ0nUelYB1rhketNuvYb+DSkUvjuW/6757Ttw==",
+      "type": "package",
+      "path": "intelhexformatreader/2.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "intelhexformatreader.2.2.3.nupkg.sha512",
+        "intelhexformatreader.nuspec",
+        "lib/net45/IntelHexFormatReader.dll",
+        "lib/net46/IntelHexFormatReader.dll",
+        "lib/netstandard1.6/IntelHexFormatReader.dll"
       ]
     },
     "Libuv/1.10.0": {
@@ -5860,6 +6004,81 @@
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
       ]
     },
+    "SerialPortStream/2.4.0": {
+      "sha512": "bj8HDpHdlXPBX+wNMZ3icfJ/080SM7iI/y24DQIcx6y8f+uqwANkiiQm/M7bgSpiRmuQ535xYaGpnsrxdsFP6w==",
+      "type": "package",
+      "path": "serialportstream/2.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/RJCP.SerialPortStream.dll",
+        "lib/net40/RJCP.SerialPortStream.pdb",
+        "lib/net40/RJCP.SerialPortStream.xml",
+        "lib/net45/RJCP.SerialPortStream.dll",
+        "lib/net45/RJCP.SerialPortStream.pdb",
+        "lib/net45/RJCP.SerialPortStream.xml",
+        "lib/netstandard1.5/RJCP.SerialPortStream.dll",
+        "lib/netstandard1.5/RJCP.SerialPortStream.pdb",
+        "lib/netstandard1.5/RJCP.SerialPortStream.xml",
+        "serialportstream.2.4.0.nupkg.sha512",
+        "serialportstream.nuspec",
+        "src/code/Datastructures/CircularBuffer.cs",
+        "src/code/Datastructures/ReusableList.cs",
+        "src/code/Datastructures/TimerExpiry.cs",
+        "src/code/GlobalSuppressions.cs",
+        "src/code/HandShake.cs",
+        "src/code/ISerialPortStream.cs",
+        "src/code/InternalApplicationException.cs",
+        "src/code/LocalAsyncResult.cs",
+        "src/code/Native/INativeSerial.cs",
+        "src/code/Native/ISerialBufferSerialData.cs",
+        "src/code/Native/ISerialBufferStreamData.cs",
+        "src/code/Native/Platform.cs",
+        "src/code/Native/ReadToCache.cs",
+        "src/code/Native/SerialBuffer.cs",
+        "src/code/Native/Unix/INativeSerialDll.cs",
+        "src/code/Native/Unix/SafeNativeMethods.cs",
+        "src/code/Native/Unix/SafeSerialHandle.cs",
+        "src/code/Native/Unix/SerialReadWriteEvent.cs",
+        "src/code/Native/Unix/SerialUnix.cs",
+        "src/code/Native/Unix/SysErrNo.cs",
+        "src/code/Native/Unix/UnsafeNativeMethods.cs",
+        "src/code/Native/Unix/WaitForModemEvent.cs",
+        "src/code/Native/UnixNativeSerial.cs",
+        "src/code/Native/WinNativeSerial.cs",
+        "src/code/Native/Windows/CommErrorEventArgs.cs",
+        "src/code/Native/Windows/CommEventArgs.cs",
+        "src/code/Native/Windows/CommModemStatus.cs",
+        "src/code/Native/Windows/CommOverlappedIo.cs",
+        "src/code/Native/Windows/CommProperties.cs",
+        "src/code/Native/Windows/CommState.cs",
+        "src/code/Native/Windows/DtrControl.cs",
+        "src/code/Native/Windows/NativeMethods.cs",
+        "src/code/Native/Windows/RtsControl.cs",
+        "src/code/Native/Windows/SafeNativeMethods.cs",
+        "src/code/Native/Windows/UnsafeNativeMethods.cs",
+        "src/code/Native/Windows/WinError.cs",
+        "src/code/Parity.cs",
+        "src/code/PortDescription.cs",
+        "src/code/Properties/AssemblyInfo.cs",
+        "src/code/SerialData.cs",
+        "src/code/SerialDataEventArgs.cs",
+        "src/code/SerialError.cs",
+        "src/code/SerialErrorReceivedEventArgs.cs",
+        "src/code/SerialPinChange.cs",
+        "src/code/SerialPinChangedEventArgs.cs",
+        "src/code/SerialPortStream.cs",
+        "src/code/SerialPortStream.csproj",
+        "src/code/StopBits.cs",
+        "src/code/System/EntryPointNotFoundException.cs",
+        "src/code/System/IO/Ports/SerialPort.cs",
+        "src/code/Trace/LineSplitter.cs",
+        "src/code/Trace/Log.cs",
+        "src/code/Trace/LogSource.cs",
+        "src/code/Trace/LogSourceFactory.cs",
+        "src/code/Trace/LoggerTraceListener.cs"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -6702,6 +6921,47 @@
         "ref/xamarinwatchos10/_._",
         "system.diagnostics.tools.4.3.0.nupkg.sha512",
         "system.diagnostics.tools.nuspec"
+      ]
+    },
+    "System.Diagnostics.TraceSource/4.3.0": {
+      "sha512": "VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
+      "type": "package",
+      "path": "system.diagnostics.tracesource/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Diagnostics.TraceSource.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Diagnostics.TraceSource.dll",
+        "ref/netstandard1.3/System.Diagnostics.TraceSource.dll",
+        "ref/netstandard1.3/System.Diagnostics.TraceSource.xml",
+        "ref/netstandard1.3/de/System.Diagnostics.TraceSource.xml",
+        "ref/netstandard1.3/es/System.Diagnostics.TraceSource.xml",
+        "ref/netstandard1.3/fr/System.Diagnostics.TraceSource.xml",
+        "ref/netstandard1.3/it/System.Diagnostics.TraceSource.xml",
+        "ref/netstandard1.3/ja/System.Diagnostics.TraceSource.xml",
+        "ref/netstandard1.3/ko/System.Diagnostics.TraceSource.xml",
+        "ref/netstandard1.3/ru/System.Diagnostics.TraceSource.xml",
+        "ref/netstandard1.3/zh-hans/System.Diagnostics.TraceSource.xml",
+        "ref/netstandard1.3/zh-hant/System.Diagnostics.TraceSource.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/unix/lib/netstandard1.3/System.Diagnostics.TraceSource.dll",
+        "runtimes/win/lib/net46/System.Diagnostics.TraceSource.dll",
+        "runtimes/win/lib/netstandard1.3/System.Diagnostics.TraceSource.dll",
+        "system.diagnostics.tracesource.4.3.0.nupkg.sha512",
+        "system.diagnostics.tracesource.nuspec"
       ]
     },
     "System.Diagnostics.Tracing/4.3.0": {
@@ -9502,6 +9762,36 @@
         "system.threading.nuspec"
       ]
     },
+    "System.Threading.Overlapped/4.3.0": {
+      "sha512": "m3HQ2dPiX/DSTpf+yJt8B0c+SRvzfqAJKx+QDWi+VLhz8svLT23MVjEOHPF/KiSLeArKU/iHescrbLd3yVgyNg==",
+      "type": "package",
+      "path": "system.threading.overlapped/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/net46/System.Threading.Overlapped.dll",
+        "ref/net46/System.Threading.Overlapped.dll",
+        "ref/netstandard1.3/System.Threading.Overlapped.dll",
+        "ref/netstandard1.3/System.Threading.Overlapped.xml",
+        "ref/netstandard1.3/de/System.Threading.Overlapped.xml",
+        "ref/netstandard1.3/es/System.Threading.Overlapped.xml",
+        "ref/netstandard1.3/fr/System.Threading.Overlapped.xml",
+        "ref/netstandard1.3/it/System.Threading.Overlapped.xml",
+        "ref/netstandard1.3/ja/System.Threading.Overlapped.xml",
+        "ref/netstandard1.3/ko/System.Threading.Overlapped.xml",
+        "ref/netstandard1.3/ru/System.Threading.Overlapped.xml",
+        "ref/netstandard1.3/zh-hans/System.Threading.Overlapped.xml",
+        "ref/netstandard1.3/zh-hant/System.Threading.Overlapped.xml",
+        "runtimes/unix/lib/netstandard1.3/System.Threading.Overlapped.dll",
+        "runtimes/win/lib/net46/System.Threading.Overlapped.dll",
+        "runtimes/win/lib/netcore50/System.Threading.Overlapped.dll",
+        "runtimes/win/lib/netstandard1.3/System.Threading.Overlapped.dll",
+        "system.threading.overlapped.4.3.0.nupkg.sha512",
+        "system.threading.overlapped.nuspec"
+      ]
+    },
     "System.Threading.Tasks/4.3.0": {
       "sha512": "LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
       "type": "package",
@@ -9704,6 +9994,46 @@
         "ref/xamarinwatchos10/_._",
         "system.threading.thread.4.3.0.nupkg.sha512",
         "system.threading.thread.nuspec"
+      ]
+    },
+    "System.Threading.ThreadPool/4.3.0": {
+      "sha512": "k/+g4b7vjdd4aix83sTgC9VG6oXYKAktSfNIJUNGxPEj7ryEOfzHHhfnmsZvjxawwcD9HyWXKCXmPjX8U4zeSw==",
+      "type": "package",
+      "path": "system.threading.threadpool/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Threading.ThreadPool.dll",
+        "lib/netcore50/_._",
+        "lib/netstandard1.3/System.Threading.ThreadPool.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Threading.ThreadPool.dll",
+        "ref/netstandard1.3/System.Threading.ThreadPool.dll",
+        "ref/netstandard1.3/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/de/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/es/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/fr/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/it/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/ja/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/ko/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/ru/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/zh-hans/System.Threading.ThreadPool.xml",
+        "ref/netstandard1.3/zh-hant/System.Threading.ThreadPool.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.threadpool.4.3.0.nupkg.sha512",
+        "system.threading.threadpool.nuspec"
       ]
     },
     "System.Threading.Timer/4.3.0": {
@@ -10040,6 +10370,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "ArduinoUploader.NET >= 6.0.1",
       "AspNetCore.RouteAnalyzer >= 0.5.3",
       "Microsoft.AspNet.Mvc >= 5.2.9",
       "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
@@ -10094,6 +10425,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "ArduinoUploader.NET": {
+            "target": "Package",
+            "version": "[6.0.1, )"
+          },
           "AspNetCore.RouteAnalyzer": {
             "target": "Package",
             "version": "[0.5.3, )"
