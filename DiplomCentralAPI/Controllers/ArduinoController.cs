@@ -43,7 +43,7 @@ namespace DiplomCentralAPI.Controllers
             serialPort.Open();
 
             //("Direction Deformation Duration")
-            serialPort.Write("100 100 100");
+            serialPort.Write(Direction + " " + Deformation + " " + PauseDuration);
 
             serialPort.Close();
 
