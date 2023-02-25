@@ -2,6 +2,7 @@
 using ArduinoUploader.Hardware;
 using DiplomCentralAPI.Controllers.Utils;
 using Microsoft.AspNetCore.Mvc;
+using System.IO.Ports;
 
 namespace DiplomCentralAPI.Controllers
 {
@@ -11,8 +12,8 @@ namespace DiplomCentralAPI.Controllers
         public ArduinoController() { }
 
         [HttpPost]
-        [Route("/setCommand")]
-        public IActionResult SetCommand(int USBPort) 
+        [Route("uploadProgramm")]
+        public IActionResult UploadProgramm(int USBPort) 
         {
             string port = "COM" + USBPort;
 
@@ -27,6 +28,24 @@ namespace DiplomCentralAPI.Controllers
                 });
 
             uploader.UploadSketch();
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("setCommands")]
+        public IActionResult SetCommands(int USBPort, int Direction, int Deformation, int PauseDuration)
+        {
+            SerialPort serialPort = new SerialPort();
+
+            serialPort.PortName = "COM" + USBPort;
+            serialPort.BaudRate = 9600;
+            serialPort.Open();
+
+            //("Direction Deformation Duration")
+            serialPort.Write("100 100 100");
+
+            serialPort.Close();
 
             return Ok();
         }
