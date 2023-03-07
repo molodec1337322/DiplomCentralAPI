@@ -18,7 +18,7 @@ namespace DiplomCentralAPI.Controllers
         [Route("test")]
         public async Task<IActionResult> Test()
         {
-            return Ok("Darova, cheliki");
+            return Ok(new {content = "Darova, cheliki" });
         }
     }
 }
