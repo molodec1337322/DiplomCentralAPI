@@ -32,20 +32,29 @@ namespace DiplomCentralAPI.Controllers
             return Ok();
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("setCommands")]
         public IActionResult SetCommands(int USBPort, int Direction, int Deformation, int PauseDuration)
         {
-            SerialPort serialPort = new SerialPort();
+            Console.WriteLine("USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration);
+            try
+            {
+                SerialPort serialPort = new SerialPort();
 
-            serialPort.PortName = "COM" + USBPort;
-            serialPort.BaudRate = 9600;
-            serialPort.Open();
+                serialPort.PortName = "COM" + USBPort;
+                serialPort.BaudRate = 9600;
+                serialPort.Open();
 
-            //("Direction Deformation Duration")
-            serialPort.Write(Direction + " " + Deformation + " " + PauseDuration);
+                //("Direction Deformation Duration")
+                serialPort.Write(Direction + " " + Deformation + " " + PauseDuration);
 
-            serialPort.Close();
+                serialPort.Close();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
 
             return Ok();
         }
