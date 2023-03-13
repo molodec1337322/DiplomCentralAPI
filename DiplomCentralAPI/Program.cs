@@ -11,12 +11,14 @@ IConfigurationRoot _dbConfig = new ConfigurationBuilder().SetBasePath(builder.En
 builder.Services.AddSession();
 builder.Services.AddControllers();
 
+/*
 builder.Services.AddDbContext<MyDBContext>(options => options.UseNpgsql(_dbConfig.GetConnectionString("PostgreSQL13")));
 
 builder.Services.AddScoped<IRepository<Handler>, HandlerRepository>();
 builder.Services.AddScoped<IRepository<Schema>, SchemaRepository>();
 builder.Services.AddScoped<IRepository<Experiment>, ExperimentRepository>();
 builder.Services.AddScoped<IRepository<Photo>, PhotoRepository>();
+*/
 
 builder.Services.AddMvc();
 builder.Services.AddControllers();
