@@ -8,9 +8,10 @@ namespace DiplomCentralAPI.Controllers
         [Route("")]
         [Route("/Home")]
         [Route("/Home/Index")]
+        [Route("/api/getCOMPorts")]
         public IActionResult Index() 
         {
-            return Ok(new { content = SerialPort.GetPortNames() }); ;
+            return Ok(new { content = SerialPort.GetPortNames() });
         }
     }
 }
