@@ -33,11 +33,20 @@ namespace DiplomCentralAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="USBPort">Номер ком порта</param>
+        /// <param name="Direction">Направление деформации</param>
+        /// <param name="Deformation">Дальность деформации</param>
+        /// <param name="PauseDuration">задержка между шагами деформации</param>
+        /// <param name="Side">сторона деформации (0 - 7, или -1 если не нужна)</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("setCommands")]
-        public IActionResult SetCommands(int USBPort, int Direction, int Deformation, int PauseDuration)
+        public IActionResult SetCommands(int USBPort, int Direction, int Deformation, int PauseDuration, short Side)
         {
-            Console.WriteLine("USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration);
+            Console.WriteLine("USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side);
             try
             {
                 SerialPort serialPort = new SerialPort();
@@ -47,7 +56,7 @@ namespace DiplomCentralAPI.Controllers
                 serialPort.Open();
 
                 //("Direction Deformation Duration")
-                serialPort.Write(Direction + " " + Deformation + " " + PauseDuration);
+                serialPort.Write(Direction + " " + Deformation + " " + PauseDuration + " " + Side * 2);
 
                 serialPort.Close();
             }
@@ -57,7 +66,7 @@ namespace DiplomCentralAPI.Controllers
             }
             
 
-            return Ok(new { content = "USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration });
+            return Ok(new { content = "USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side });
         }
 
     }
