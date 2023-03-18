@@ -11,7 +11,7 @@ namespace DiplomCentralAPI.Controllers
         public ExperimentsController() { }
 
         [HttpGet]
-        [Route("getExperimentsList")]
+        [Route("getAllList")]
         public IActionResult GetExperimentsList()
         {
             //тут вообще должно все браться из БД, но пока затычка будет
