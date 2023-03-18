@@ -3,6 +3,7 @@ using ArduinoUploader.Hardware;
 using DiplomCentralAPI.Controllers.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System.IO.Ports;
+using System.Windows;
 
 namespace DiplomCentralAPI.Controllers
 {
@@ -52,11 +53,11 @@ namespace DiplomCentralAPI.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new {error = ex.Message });
             }
             
 
-            return Ok();
+            return Ok(new { content = "USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration });
         }
 
     }

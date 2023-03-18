@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.IO.Ports;
 
 namespace DiplomCentralAPI.Controllers
 {
@@ -7,9 +8,9 @@ namespace DiplomCentralAPI.Controllers
         [Route("")]
         [Route("/Home")]
         [Route("/Home/Index")]
-        public string Index() 
+        public IActionResult Index() 
         {
-            return "test";
+            return Ok(new { content = SerialPort.GetPortNames() }); ;
         }
     }
 }
