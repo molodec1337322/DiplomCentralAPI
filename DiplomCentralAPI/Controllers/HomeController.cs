@@ -11,7 +11,16 @@ namespace DiplomCentralAPI.Controllers
         [Route("/api/getCOMPorts")]
         public IActionResult Index() 
         {
-            return Ok(SerialPort.GetPortNames());
+            List<Port> ports = new List<Port>();
+            List<string> portsList = SerialPort.GetPortNames().ToList();
+            foreach(string port in portsList)
+            {
+                ports.Add(new Port(port));
+            }
+
+            return Ok(ports);
         }
+
+        record Port(string port);
     }
 }
