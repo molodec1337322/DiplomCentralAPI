@@ -123,9 +123,6 @@ namespace DiplomCentralAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("HandlerId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text");
@@ -135,8 +132,6 @@ namespace DiplomCentralAPI.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("HandlerId");
 
                     b.ToTable("Schemas");
                 });
@@ -171,13 +166,6 @@ namespace DiplomCentralAPI.Migrations
                     b.Navigation("Experiment");
                 });
 
-            modelBuilder.Entity("DiplomCentralAPI.Data.Models.Schema", b =>
-                {
-                    b.HasOne("DiplomCentralAPI.Data.Models.Handler", null)
-                        .WithMany("Schemas")
-                        .HasForeignKey("HandlerId");
-                });
-
             modelBuilder.Entity("DiplomCentralAPI.Data.Models.Experiment", b =>
                 {
                     b.Navigation("Photos");
@@ -186,8 +174,6 @@ namespace DiplomCentralAPI.Migrations
             modelBuilder.Entity("DiplomCentralAPI.Data.Models.Handler", b =>
                 {
                     b.Navigation("Experiments");
-
-                    b.Navigation("Schemas");
                 });
 
             modelBuilder.Entity("DiplomCentralAPI.Data.Models.Schema", b =>

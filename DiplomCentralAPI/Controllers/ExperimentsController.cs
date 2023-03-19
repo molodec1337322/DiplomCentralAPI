@@ -18,8 +18,12 @@ namespace DiplomCentralAPI.Controllers
             _schemaRepository = schemaRepo;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        [Route("getAllList")]
+        [Route("getAllSchemasList")]
         public IActionResult GetExperimentsList()
         {
             /*
@@ -34,20 +38,44 @@ namespace DiplomCentralAPI.Controllers
             };
             */
 
-            List<ExperimentData> data = 
+            List<Schema> data = _schemaRepository.GetAll().ToList();
 
 
             return Ok(data);
         }
 
-        [HttpGet]
+        /// <summary>
+        /// Req {"description": "new experement schema", "videoSaveFolderPath": "C:/wwww/root", "schemaText": "100 102 150 -1"}
+        /// Res {}
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
         [Route("createNewSchema")]
-        public IActionResult CreateNewSchemaExperiment()
+        public async Task<IActionResult> CreateNewSchemaExperimentAsync()
         {
+            try
+            {
+                NewSchemaData? newSchemaData = await HttpContext.Request.ReadFromJsonAsync<NewSchemaData>();
 
-            return Ok();
+                Schema newSchema = new Schema();
+                newSchema.Description = newSchemaData.description;
+                newSchema.VideoPath = newSchemaData.videoSaveFolderPath;
+                newSchema.Text = newSchemaData.schemaText;
+                newSchema.CreatedAt = DateTime.UtcNow;
+
+                _schemaRepository.Add(newSchema);
+                await _schemaRepository.SaveChanges();
+
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         public record ExperimentData(string Name, string Data);
+        public record NewSchemaData(string description, string videoSaveFolderPath, string schemaText);
     }
 }

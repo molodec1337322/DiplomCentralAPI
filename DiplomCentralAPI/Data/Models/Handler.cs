@@ -7,8 +7,6 @@
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public IEnumerable<Schema> Schemas { get; set; }
-
         public IEnumerable<Experiment> Experiments { get; set; }
     }
 }

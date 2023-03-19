@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DiplomCentralAPI.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20230207181747_Initial-1")]
-    partial class Initial1
+    [Migration("20230319175430_Update1")]
+    partial class Update1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,9 @@ namespace DiplomCentralAPI.Migrations
                     b.Property<DateTime>("EndedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int>("HandlerId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("ResultPath")
                         .IsRequired()
                         .HasColumnType("text");
@@ -51,6 +54,8 @@ namespace DiplomCentralAPI.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HandlerId");
 
                     b.HasIndex("SchemaId");
 
@@ -121,9 +126,6 @@ namespace DiplomCentralAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("HandlerId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text");
@@ -134,18 +136,24 @@ namespace DiplomCentralAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HandlerId");
-
                     b.ToTable("Schemas");
                 });
 
             modelBuilder.Entity("DiplomCentralAPI.Data.Models.Experiment", b =>
                 {
+                    b.HasOne("DiplomCentralAPI.Data.Models.Handler", "Handler")
+                        .WithMany("Experiments")
+                        .HasForeignKey("HandlerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DiplomCentralAPI.Data.Models.Schema", "Schema")
                         .WithMany("Experiments")
                         .HasForeignKey("SchemaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Handler");
 
                     b.Navigation("Schema");
                 });
@@ -161,17 +169,6 @@ namespace DiplomCentralAPI.Migrations
                     b.Navigation("Experiment");
                 });
 
-            modelBuilder.Entity("DiplomCentralAPI.Data.Models.Schema", b =>
-                {
-                    b.HasOne("DiplomCentralAPI.Data.Models.Handler", "Handler")
-                        .WithMany("Schemas")
-                        .HasForeignKey("HandlerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Handler");
-                });
-
             modelBuilder.Entity("DiplomCentralAPI.Data.Models.Experiment", b =>
                 {
                     b.Navigation("Photos");
@@ -179,7 +176,7 @@ namespace DiplomCentralAPI.Migrations
 
             modelBuilder.Entity("DiplomCentralAPI.Data.Models.Handler", b =>
                 {
-                    b.Navigation("Schemas");
+                    b.Navigation("Experiments");
                 });
 
             modelBuilder.Entity("DiplomCentralAPI.Data.Models.Schema", b =>
