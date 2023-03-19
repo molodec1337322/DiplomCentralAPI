@@ -11,5 +11,7 @@
         public IEnumerable<Photo> Photos { get; set; }
         public int SchemaId { get; set; }
         public Schema Schema { get; set; }
+        public int HandlerId { get; set; }
+        public Handler Handler { get; set; }
     }
 }

@@ -9,7 +9,5 @@
         public string Text { get; set; }
 
         public IEnumerable<Experiment> Experiments { get; set; }
-        public int HandlerId { get; set; }
-        public Handler Handler { get; set; }
     }
 }
