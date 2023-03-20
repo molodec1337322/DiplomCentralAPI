@@ -44,14 +44,14 @@ namespace DiplomCentralAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("setCommands")]
-        public IActionResult SetCommands(int USBPort, int Direction, int Deformation, int PauseDuration, short Side)
+        public IActionResult SetCommands(string USBPort, int Direction, int Deformation, int PauseDuration, short Side)
         {
             Console.WriteLine("USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side);
             try
             {
                 SerialPort serialPort = new SerialPort();
 
-                serialPort.PortName = "COM" + USBPort;
+                serialPort.PortName = USBPort;
                 serialPort.BaudRate = 9600;
                 serialPort.Open();
 
