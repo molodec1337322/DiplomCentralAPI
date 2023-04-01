@@ -32,6 +32,34 @@
           }
         }
       },
+      "DynamicLanguageRuntime/1.3.3": {
+        "type": "package",
+        "dependencies": {
+          "System.CodeDom": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Dynamic.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/Microsoft.Scripting.Metadata.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/Microsoft.Scripting.dll": {
+            "related": ".Metadata.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Dynamic.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/Microsoft.Scripting.Metadata.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/Microsoft.Scripting.dll": {
+            "related": ".Metadata.xml;.xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -55,6 +83,41 @@
         },
         "runtime": {
           "lib/netstandard1.6/IntelHexFormatReader.dll": {}
+        }
+      },
+      "IronPython/3.4.0": {
+        "type": "package",
+        "dependencies": {
+          "DynamicLanguageRuntime": "1.3.3",
+          "Mono.Unix": "7.1.0-final.1.21458.1"
+        },
+        "compile": {
+          "lib/net6.0/IronPython.Modules.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/IronPython.SQLite.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/IronPython.Wpf.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/IronPython.dll": {
+            "related": ".Modules.xml;.SQLite.xml;.Wpf.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/IronPython.Modules.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/IronPython.SQLite.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/IronPython.Wpf.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/IronPython.dll": {
+            "related": ".Modules.xml;.SQLite.xml;.Wpf.xml;.xml"
+          }
         }
       },
       "Libuv/1.10.0": {
@@ -1942,6 +2005,96 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "Mono.Unix/7.1.0-final.1.21458.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Mono.Unix.dll": {
+            "related": ".dll.config;.pdb"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Mono.Unix.dll": {
+            "related": ".dll.config;.pdb"
+          }
+        },
+        "build": {
+          "build/Mono.Unix.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/android-arm/native/libMono.Unix.so": {
+            "assetType": "native",
+            "rid": "android-arm"
+          },
+          "runtimes/android-arm64/native/libMono.Unix.so": {
+            "assetType": "native",
+            "rid": "android-arm64"
+          },
+          "runtimes/android-x64/native/libMono.Unix.so": {
+            "assetType": "native",
+            "rid": "android-x64"
+          },
+          "runtimes/android-x86/native/libMono.Unix.so": {
+            "assetType": "native",
+            "rid": "android-x86"
+          },
+          "runtimes/ios-arm/native/libMono.Unix.a": {
+            "assetType": "native",
+            "rid": "ios-arm"
+          },
+          "runtimes/ios-arm64/native/libMono.Unix.a": {
+            "assetType": "native",
+            "rid": "ios-arm64"
+          },
+          "runtimes/ios-armv7s/native/libMono.Unix.a": {
+            "assetType": "native",
+            "rid": "ios-armv7s"
+          },
+          "runtimes/iossimulator-arm64/native/libMono.Unix.a": {
+            "assetType": "native",
+            "rid": "iossimulator-arm64"
+          },
+          "runtimes/iossimulator-x64/native/libMono.Unix.a": {
+            "assetType": "native",
+            "rid": "iossimulator-x64"
+          },
+          "runtimes/linux-arm/native/libMono.Unix.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          },
+          "runtimes/linux-arm64/native/libMono.Unix.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-x64/native/libMono.Unix.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/maccatalyst-arm64/native/libMono.Unix.a": {
+            "assetType": "native",
+            "rid": "maccatalyst-arm64"
+          },
+          "runtimes/maccatalyst-x64/native/libMono.Unix.a": {
+            "assetType": "native",
+            "rid": "maccatalyst-x64"
+          },
+          "runtimes/osx-arm64/native/libMono.Unix.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-x64/native/libMono.Unix.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/tvos-arm64/native/libMono.Unix.a": {
+            "assetType": "native",
+            "rid": "tvos-arm64"
+          },
+          "runtimes/tvossimulator-x64/native/libMono.Unix.a": {
+            "assetType": "native",
+            "rid": "tvossimulator-x64"
+          }
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -2367,15 +2520,20 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "System.CodeDom/4.4.0": {
+      "System.CodeDom/6.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/_._": {
+          "lib/net6.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/System.CodeDom.dll": {}
+          "lib/net6.0/System.CodeDom.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -4009,6 +4167,43 @@
         "lib/netcoreapp2.0/AspNetCore.RouteAnalyzer.pdb"
       ]
     },
+    "DynamicLanguageRuntime/1.3.3": {
+      "sha512": "FZK23PmwdfnXqX5zMf8JufymxAKXGohg2UtEfBgAlNgqXE8pq0MULF7KUUrxxI1Y6rW5OYwQwNCg1jKw2i8VVw==",
+      "type": "package",
+      "path": "dynamiclanguageruntime/1.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "dynamiclanguageruntime.1.3.3.nupkg.sha512",
+        "dynamiclanguageruntime.nuspec",
+        "lib/net452/Microsoft.Dynamic.dll",
+        "lib/net452/Microsoft.Dynamic.xml",
+        "lib/net452/Microsoft.Scripting.Metadata.dll",
+        "lib/net452/Microsoft.Scripting.Metadata.xml",
+        "lib/net452/Microsoft.Scripting.dll",
+        "lib/net452/Microsoft.Scripting.xml",
+        "lib/net6.0/Microsoft.Dynamic.dll",
+        "lib/net6.0/Microsoft.Dynamic.xml",
+        "lib/net6.0/Microsoft.Scripting.Metadata.dll",
+        "lib/net6.0/Microsoft.Scripting.Metadata.xml",
+        "lib/net6.0/Microsoft.Scripting.dll",
+        "lib/net6.0/Microsoft.Scripting.xml",
+        "lib/netcoreapp3.1/Microsoft.Dynamic.dll",
+        "lib/netcoreapp3.1/Microsoft.Dynamic.xml",
+        "lib/netcoreapp3.1/Microsoft.Scripting.Metadata.dll",
+        "lib/netcoreapp3.1/Microsoft.Scripting.Metadata.xml",
+        "lib/netcoreapp3.1/Microsoft.Scripting.dll",
+        "lib/netcoreapp3.1/Microsoft.Scripting.xml",
+        "lib/netstandard2.0/Microsoft.Dynamic.dll",
+        "lib/netstandard2.0/Microsoft.Dynamic.xml",
+        "lib/netstandard2.0/Microsoft.Scripting.Metadata.dll",
+        "lib/netstandard2.0/Microsoft.Scripting.Metadata.xml",
+        "lib/netstandard2.0/Microsoft.Scripting.dll",
+        "lib/netstandard2.0/Microsoft.Scripting.xml"
+      ]
+    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",
@@ -4039,6 +4234,50 @@
         "lib/net45/IntelHexFormatReader.dll",
         "lib/net46/IntelHexFormatReader.dll",
         "lib/netstandard1.6/IntelHexFormatReader.dll"
+      ]
+    },
+    "IronPython/3.4.0": {
+      "sha512": "r2wUfzgQWtDkhTYH9f2faMPEdZVir9VvdhAekDIzJx7Ye6SQl35agWDpJkX66le4fvWYmZZ4rXqj5mAcYDrJTw==",
+      "type": "package",
+      "path": "ironpython/3.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "ironpython.3.4.0.nupkg.sha512",
+        "ironpython.nuspec",
+        "lib/net462/IronPython.Modules.dll",
+        "lib/net462/IronPython.Modules.xml",
+        "lib/net462/IronPython.SQLite.dll",
+        "lib/net462/IronPython.SQLite.xml",
+        "lib/net462/IronPython.Wpf.dll",
+        "lib/net462/IronPython.Wpf.xml",
+        "lib/net462/IronPython.dll",
+        "lib/net462/IronPython.xml",
+        "lib/net6.0/IronPython.Modules.dll",
+        "lib/net6.0/IronPython.Modules.xml",
+        "lib/net6.0/IronPython.SQLite.dll",
+        "lib/net6.0/IronPython.SQLite.xml",
+        "lib/net6.0/IronPython.Wpf.dll",
+        "lib/net6.0/IronPython.Wpf.xml",
+        "lib/net6.0/IronPython.dll",
+        "lib/net6.0/IronPython.xml",
+        "lib/netcoreapp3.1/IronPython.Modules.dll",
+        "lib/netcoreapp3.1/IronPython.Modules.xml",
+        "lib/netcoreapp3.1/IronPython.SQLite.dll",
+        "lib/netcoreapp3.1/IronPython.SQLite.xml",
+        "lib/netcoreapp3.1/IronPython.Wpf.dll",
+        "lib/netcoreapp3.1/IronPython.Wpf.xml",
+        "lib/netcoreapp3.1/IronPython.dll",
+        "lib/netcoreapp3.1/IronPython.xml",
+        "lib/netstandard2.0/IronPython.Modules.dll",
+        "lib/netstandard2.0/IronPython.Modules.xml",
+        "lib/netstandard2.0/IronPython.SQLite.dll",
+        "lib/netstandard2.0/IronPython.SQLite.xml",
+        "lib/netstandard2.0/IronPython.dll",
+        "lib/netstandard2.0/IronPython.xml",
+        "logo.png"
       ]
     },
     "Libuv/1.10.0": {
@@ -5755,6 +5994,68 @@
         "mono.texttemplating.nuspec"
       ]
     },
+    "Mono.Unix/7.1.0-final.1.21458.1": {
+      "sha512": "Rhxz4A7By8Q0wEgDqR+mioDsYXGrcYMYPiWE9bSaUKMpG8yAGArhetEQV5Ms6KhKCLdQTlPYLBKPZYoKbAvT/g==",
+      "type": "package",
+      "path": "mono.unix/7.1.0-final.1.21458.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "auxiliary/android-arm/native/libMono.Unix.a",
+        "auxiliary/android-arm/native/libMono.Unix.so.debug",
+        "auxiliary/android-arm64/native/libMono.Unix.a",
+        "auxiliary/android-arm64/native/libMono.Unix.so.debug",
+        "auxiliary/android-x64/native/libMono.Unix.a",
+        "auxiliary/android-x64/native/libMono.Unix.so.debug",
+        "auxiliary/android-x86/native/libMono.Unix.a",
+        "auxiliary/android-x86/native/libMono.Unix.so.debug",
+        "auxiliary/linux-arm/native/libMono.Unix.a",
+        "auxiliary/linux-arm/native/libMono.Unix.so.debug",
+        "auxiliary/linux-arm64/native/libMono.Unix.a",
+        "auxiliary/linux-arm64/native/libMono.Unix.so.debug",
+        "auxiliary/linux-x64/native/libMono.Unix.a",
+        "auxiliary/linux-x64/native/libMono.Unix.so.debug",
+        "auxiliary/osx-arm64/native/libMono.Unix.a",
+        "auxiliary/osx-x64/native/libMono.Unix.a",
+        "build/Mono.Unix.targets",
+        "lib/net45/Mono.Unix.dll",
+        "lib/net45/Mono.Unix.dll.config",
+        "lib/net45/Mono.Unix.pdb",
+        "lib/net6.0/Mono.Unix.dll",
+        "lib/net6.0/Mono.Unix.dll.config",
+        "lib/net6.0/Mono.Unix.pdb",
+        "lib/netcoreapp3.1/Mono.Unix.dll",
+        "lib/netcoreapp3.1/Mono.Unix.dll.config",
+        "lib/netcoreapp3.1/Mono.Unix.pdb",
+        "lib/netstandard2.0/Mono.Unix.dll",
+        "lib/netstandard2.0/Mono.Unix.dll.config",
+        "lib/netstandard2.0/Mono.Unix.pdb",
+        "lib/netstandard2.1/Mono.Unix.dll",
+        "lib/netstandard2.1/Mono.Unix.dll.config",
+        "lib/netstandard2.1/Mono.Unix.pdb",
+        "mono.unix.7.1.0-final.1.21458.1.nupkg.sha512",
+        "mono.unix.nuspec",
+        "runtimes/android-arm/native/libMono.Unix.so",
+        "runtimes/android-arm64/native/libMono.Unix.so",
+        "runtimes/android-x64/native/libMono.Unix.so",
+        "runtimes/android-x86/native/libMono.Unix.so",
+        "runtimes/ios-arm/native/libMono.Unix.a",
+        "runtimes/ios-arm64/native/libMono.Unix.a",
+        "runtimes/ios-armv7s/native/libMono.Unix.a",
+        "runtimes/iossimulator-arm64/native/libMono.Unix.a",
+        "runtimes/iossimulator-x64/native/libMono.Unix.a",
+        "runtimes/linux-arm/native/libMono.Unix.so",
+        "runtimes/linux-arm64/native/libMono.Unix.so",
+        "runtimes/linux-x64/native/libMono.Unix.so",
+        "runtimes/maccatalyst-arm64/native/libMono.Unix.a",
+        "runtimes/maccatalyst-x64/native/libMono.Unix.a",
+        "runtimes/osx-arm64/native/libMono.Unix.dylib",
+        "runtimes/osx-x64/native/libMono.Unix.dylib",
+        "runtimes/tvos-arm64/native/libMono.Unix.a",
+        "runtimes/tvossimulator-x64/native/libMono.Unix.a"
+      ]
+    },
     "NETStandard.Library/1.6.1": {
       "sha512": "WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
       "type": "package",
@@ -6342,25 +6643,27 @@
         "version.txt"
       ]
     },
-    "System.CodeDom/4.4.0": {
-      "sha512": "2sCCb7doXEwtYAbqzbF/8UAeDRMNmPaQbU2q50Psg1J9KzumyVVCgKQY8s53WIPTufNT0DpSe9QRvVjOzfDWBA==",
+    "System.CodeDom/6.0.0": {
+      "sha512": "CPc6tWO1LAer3IzfZufDBRL+UZQcj5uS207NHALQzP84Vp/z6wF0Aa0YZImOQY8iStY0A2zI/e3ihKNPfUm8XA==",
       "type": "package",
-      "path": "system.codedom/4.4.0",
+      "path": "system.codedom/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.CodeDom.targets",
+        "buildTransitive/netcoreapp3.1/_._",
         "lib/net461/System.CodeDom.dll",
+        "lib/net461/System.CodeDom.xml",
+        "lib/net6.0/System.CodeDom.dll",
+        "lib/net6.0/System.CodeDom.xml",
         "lib/netstandard2.0/System.CodeDom.dll",
-        "ref/net461/System.CodeDom.dll",
-        "ref/net461/System.CodeDom.xml",
-        "ref/netstandard2.0/System.CodeDom.dll",
-        "ref/netstandard2.0/System.CodeDom.xml",
-        "system.codedom.4.4.0.nupkg.sha512",
+        "lib/netstandard2.0/System.CodeDom.xml",
+        "system.codedom.6.0.0.nupkg.sha512",
         "system.codedom.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Collections/4.3.0": {
@@ -10586,6 +10889,7 @@
     "net6.0": [
       "ArduinoUploader.NET >= 6.0.1",
       "AspNetCore.RouteAnalyzer >= 0.5.3",
+      "IronPython >= 3.4.0",
       "Microsoft.AspNet.Mvc >= 5.2.9",
       "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
       "Microsoft.EntityFrameworkCore >= 7.0.2",
@@ -10649,6 +10953,10 @@
           "AspNetCore.RouteAnalyzer": {
             "target": "Package",
             "version": "[0.5.3, )"
+          },
+          "IronPython": {
+            "target": "Package",
+            "version": "[3.4.0, )"
           },
           "Microsoft.AspNet.Mvc": {
             "target": "Package",

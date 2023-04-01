@@ -14,7 +14,6 @@
            и освобождение сессии.
     prereq для модуля: opencv-python
 """
-path_to_tmp_vid = 'tmp_video.avi'
 
 
 import cv2
@@ -78,7 +77,7 @@ class TimerCallback:
             self._timer_thread.join()
 
 
-def create_pictures(image_names: str, grayscale: bool, resize: bool, time_between_screenshots_seconds: int,
+def create_pictures(path_to_img: str, grayscale: bool, resize: bool, time_between_screenshots_seconds: int,
                                                 amount_of_pictures: int, camera_number=0, resize_x=640, resize_y=480):
     cam = cv2.VideoCapture(camera_number)
 
@@ -88,9 +87,10 @@ def create_pictures(image_names: str, grayscale: bool, resize: bool, time_betwee
             image = resize_picture(resize_x, resize_y, image)
         if grayscale:
             image = img_to_grayscale(image)
-        filename = image_names + '_' + str(i) + '_' + str(time_between_screenshots_seconds * i) + '_' + 'tmp.jpg'
+        filename = path_to_img + '_' + str(i) + '_' + str(time_between_screenshots_seconds * i) + '_' + 'tmp.jpg'
         cv2.imwrite(filename, image)
         time.sleep(time_between_screenshots_seconds)
+    return "ok"
 
 
 """cv2.imshow("now", get_current_picture())
@@ -100,11 +100,11 @@ cv2.waitKey(0)
 cv2.destroyWindow("now")"""
 
 
-def record_video(is_grayscale: bool, resolution_x: int, resolution_y: int, framerate, duration_sec):
+def record_video(path_to_vid, is_grayscale: bool, resolution_x: int, resolution_y: int, framerate, duration_sec):
     capture = cv2.VideoCapture(0)
 
     fourcc = cv2.VideoWriter_fourcc('X', 'V', 'I', 'D')
-    videoWriter = cv2.VideoWriter(path_to_tmp_vid, fourcc, framerate, (resolution_x, resolution_y))
+    videoWriter = cv2.VideoWriter(path_to_vid, fourcc, framerate, (resolution_x, resolution_y))
 
     timer_callback = TimerCallback()
     timer_callback.start(duration_sec)
@@ -123,6 +123,7 @@ def record_video(is_grayscale: bool, resolution_x: int, resolution_y: int, frame
 
     capture.release()
     videoWriter.release()
+    return "ok"
 
 
 def calibrate_camera():
@@ -137,6 +138,7 @@ def img_to_grayscale(img):  # перевод изображения в Отте�
     return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 
+'''
 if __name__ == "__main__":
     """timer = Timer()
 
@@ -147,10 +149,12 @@ if __name__ == "__main__":
     timer.async_stop()
     #cv2.waitKey(0)
     #cv2.destroyWindow("now")"""
-    record_video(False, 640, 480, 30, 3)
+    
+    #record_video(False, 640, 480, 30, 3)
 
-    create_pictures(image_names='test', grayscale=True, resize=True, time_between_screenshots_seconds=1,
-                                                amount_of_pictures=5, camera_number=0, resize_x=640, resize_y=480)
+    #create_pictures(image_names='test', grayscale=True, resize=True, time_between_screenshots_seconds=1,
+                                                #amount_of_pictures=5, camera_number=0, resize_x=640, resize_y=480)
+'''
 
 
 
