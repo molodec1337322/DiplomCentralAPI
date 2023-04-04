@@ -19,6 +19,7 @@
 import cv2
 import time
 import threading
+import urllib.request
 
 
 class TimerError(Exception):
@@ -100,7 +101,7 @@ cv2.waitKey(0)
 cv2.destroyWindow("now")"""
 
 
-def record_video(path_to_vid, is_grayscale: bool, resolution_x: int, resolution_y: int, framerate, duration_sec):
+def record_video(path_to_vid, is_grayscale: bool, resolution_x: int, resolution_y: int, framerate, duration_sec, url_stop_callback_api: str):
     capture = cv2.VideoCapture(0)
 
     fourcc = cv2.VideoWriter_fourcc('X', 'V', 'I', 'D')
@@ -123,6 +124,7 @@ def record_video(path_to_vid, is_grayscale: bool, resolution_x: int, resolution_
 
     capture.release()
     videoWriter.release()
+    webUrl = urllib.request.urlopen(url_stop_callback_api)
     return "ok"
 
 

@@ -4,6 +4,7 @@ using DiplomCentralAPI.Controllers.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System.IO.Ports;
 using System.Windows;
+using static IronPython.Modules._ast;
 
 namespace DiplomCentralAPI.Controllers
 {
@@ -46,7 +47,7 @@ namespace DiplomCentralAPI.Controllers
         [Route("setCommands")]
         public IActionResult SetCommands(string USBPort, int Direction, int Deformation, int PauseDuration, short Side)
         {
-            Console.WriteLine("USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side);
+            //Console.WriteLine("USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side);
             try
             {
                 SerialPort serialPort = new SerialPort();
@@ -64,9 +65,10 @@ namespace DiplomCentralAPI.Controllers
             {
                 return BadRequest(new {error = ex.Message });
             }
-            
 
-            return Ok(new { content = "USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side });
+            //return Redirect("/api/camera/startVideoRecord");
+            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 600, height = 480, framerate = 30, duration = 10});
+            //return Ok(new { content = "USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side });
         }
 
     }

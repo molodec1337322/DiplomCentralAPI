@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "/3VLPn6+KQiW8pozpfQbQ6rjX2xUK8daagC6vHAfptE=",
+  "Hash": "23SLpK8LXBMEk9lhBq0/yWsVpVbkrVHUje2YGE8cthU=",
   "Source": "DiplomCentralAPI",
   "BasePath": "_content/DiplomCentralAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "DiplomCentralAPI\\wwwroot",
+      "Source": "DiplomCentralAPI",
+      "ContentRoot": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\",
+      "BasePath": "_content/DiplomCentralAPI",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
