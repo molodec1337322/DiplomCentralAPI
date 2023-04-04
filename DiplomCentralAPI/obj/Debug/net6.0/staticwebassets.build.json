@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "23SLpK8LXBMEk9lhBq0/yWsVpVbkrVHUje2YGE8cthU=",
+  "Hash": "itDQEdiBtWpdzr+NvEkALFg0tgi517RJawgx+e6dOSc=",
   "Source": "DiplomCentralAPI",
   "BasePath": "_content/DiplomCentralAPI",
   "Mode": "Default",
@@ -15,5 +15,23 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\c6c1845c-2f51-4932-bb08-ec738a077bc6.avi",
+      "SourceId": "DiplomCentralAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\",
+      "BasePath": "_content/DiplomCentralAPI",
+      "RelativePath": "Videos/c6c1845c-2f51-4932-bb08-ec738a077bc6.avi",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Videos\\c6c1845c-2f51-4932-bb08-ec738a077bc6.avi"
+    }
+  ]
 }

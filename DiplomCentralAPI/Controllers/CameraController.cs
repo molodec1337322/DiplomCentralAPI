@@ -1,7 +1,8 @@
 ﻿using DiplomCentralAPI.Data.Interfaces;
 using DiplomCentralAPI.Data.Models;
-using IronPython.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Npgsql.Internal.TypeHandlers;
+using System.Diagnostics;
 
 namespace DiplomCentralAPI.Controllers
 {
@@ -32,7 +33,7 @@ namespace DiplomCentralAPI.Controllers
         [Route("startVideoRecord")]
         public IActionResult StartVideoRecord(int cameraId, int width, int height, int framerate, int duration)
         {
-            var cameraScriptPath = Path.Combine(_appEnviroment.ContentRootPath, "Cameras", "Camera1", "main.py");
+            var cameraScriptPath = Path.Combine(_appEnviroment.ContentRootPath, "Cameras", "Camera1", "videoRecord.py");
             if (!System.IO.File.Exists(cameraScriptPath))
             {
                 return BadRequest(new {error = "camera script not found"});
@@ -43,20 +44,43 @@ namespace DiplomCentralAPI.Controllers
                 //return BadRequest(new { error = "camera script not found" });
                 Directory.CreateDirectory(videoRecordSavePath);
             }
-            string urlToStopRecord = Request.Host.Host + Request.Host.Port + "api/camera/stopVideoRecord";
+            var videoRecordVideoFile = Path.Combine(videoRecordSavePath, Guid.NewGuid().ToString() + ".avi");
+
+            string urlToStopRecord = "https://" + Request.Host.Host + ":" + Request.Host.Port + "/api/camera/stopVideoRecord";
             try
             {
+                /*
                 var engine = Python.CreateEngine();
                 var scope = engine.CreateScope();
 
                 ICollection<string> searchPaths = engine.GetSearchPaths();
-                searchPaths.Add("C:\\Python39\\Lib");
-                searchPaths.Add("C:\\Python39\\Lib\\site-packages");
+                searchPaths.Add("C:\\Python34\\Lib");
+                searchPaths.Add("C:\\Python34\\Lib\\site-packages");
                 engine.SetSearchPaths(searchPaths);
 
                 engine.ExecuteFile(cameraScriptPath, scope);
                 var recordVideo = scope.GetVariable("record_video");
                 var result = recordVideo(videoRecordSavePath, false, width, height, framerate, duration, urlToStopRecord);
+                */
+
+                char[] splitter = { '\r' };
+
+                Process process = new Process();
+                process.StartInfo.FileName = "python.exe";
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.UseShellExecute = false;
+
+                // call hello.py to concatenate passed parameters
+                process.StartInfo.Arguments = string.Concat(cameraScriptPath, " ", videoRecordVideoFile, " ", 0, " ", width.ToString(), " ", height.ToString(), " ", framerate.ToString(), " ", duration.ToString(), " ", urlToStopRecord, " ", cameraId.ToString());
+                process.Start();
+
+                StreamReader sReader = process.StandardOutput;
+                string[] output = sReader.ReadToEnd().Split(splitter);
+
+                foreach (string s in output)
+                    Console.WriteLine(s);
+
+                process.WaitForExit();
             }
             catch(Exception ex)
             {

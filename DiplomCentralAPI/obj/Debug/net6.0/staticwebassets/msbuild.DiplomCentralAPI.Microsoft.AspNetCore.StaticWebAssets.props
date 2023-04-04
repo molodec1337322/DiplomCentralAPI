@@ -1,0 +1,20 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\c6c1845c-2f51-4932-bb08-ec738a077bc6.avi))">
+      <SourceType>Package</SourceType>
+      <SourceId>DiplomCentralAPI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DiplomCentralAPI</BasePath>
+      <RelativePath>Videos/c6c1845c-2f51-4932-bb08-ec738a077bc6.avi</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\c6c1845c-2f51-4932-bb08-ec738a077bc6.avi))</OriginalItemSpec>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

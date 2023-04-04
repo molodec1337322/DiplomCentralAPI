@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\c6c1845c-2f51-4932-bb08-ec738a077bc6.avi",
+      "PackagePath": "staticwebassets\\Videos\\c6c1845c-2f51-4932-bb08-ec738a077bc6.avi"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.DiplomCentralAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.DiplomCentralAPI.props",
+      "PackagePath": "build\\DiplomCentralAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.DiplomCentralAPI.props",
+      "PackagePath": "buildMultiTargeting\\DiplomCentralAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.DiplomCentralAPI.props",
+      "PackagePath": "buildTransitive\\DiplomCentralAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

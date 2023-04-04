@@ -67,7 +67,7 @@ namespace DiplomCentralAPI.Controllers
             }
 
             //return Redirect("/api/camera/startVideoRecord");
-            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 600, height = 480, framerate = 30, duration = 10});
+            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 1280, height = 720, framerate = 30, duration = 10});
             //return Ok(new { content = "USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side });
         }
 
