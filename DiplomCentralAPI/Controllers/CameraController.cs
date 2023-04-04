@@ -47,8 +47,12 @@ namespace DiplomCentralAPI.Controllers
             try
             {
                 var engine = Python.CreateEngine();
-                //var source = engine.CreateScriptSourceFromFile(Path.Combine(cameraScrriptPath));
                 var scope = engine.CreateScope();
+
+                ICollection<string> searchPaths = engine.GetSearchPaths();
+                searchPaths.Add("C:\\Python39\\Lib");
+                searchPaths.Add("C:\\Python39\\Lib\\site-packages");
+                engine.SetSearchPaths(searchPaths);
 
                 engine.ExecuteFile(cameraScriptPath, scope);
                 var recordVideo = scope.GetVariable("record_video");
@@ -56,6 +60,7 @@ namespace DiplomCentralAPI.Controllers
             }
             catch(Exception ex)
             {
+                Console.Write(ex.ToString());
                 return BadRequest(new { error = ex.Message });
             }
             
