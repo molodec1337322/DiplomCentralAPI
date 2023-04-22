@@ -1,17 +1,30 @@
 ﻿using ArduinoUploader;
 using ArduinoUploader.Hardware;
 using DiplomCentralAPI.Controllers.Utils;
+using DiplomCentralAPI.Data.Interfaces;
+using DiplomCentralAPI.Data.Models;
+using DiplomCentralAPI.Data.Repository.Postgres;
 using Microsoft.AspNetCore.Mvc;
 using System.IO.Ports;
 using System.Windows;
 using static IronPython.Modules._ast;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DiplomCentralAPI.Controllers
 {
     [Route("api/arduino")]
     public class ArduinoController : Controller
     {
-        public ArduinoController() { }
+        private readonly IRepository<Schema> _schemaRepository;
+        private readonly IConfiguration _appConfiguration;
+        private readonly IWebHostEnvironment _appEnviroment;
+
+        public ArduinoController(IRepository<Schema> schemaRepo, IConfiguration appConfiguration, IWebHostEnvironment appEnviroment) 
+        {
+            _schemaRepository = schemaRepo;
+            _appConfiguration = appConfiguration;
+            _appEnviroment = appEnviroment;
+        }
 
         [HttpPost]
         [Route("uploadProgramm")]
@@ -66,9 +79,44 @@ namespace DiplomCentralAPI.Controllers
                 return BadRequest(new {error = ex.Message });
             }
 
-            //return Redirect("/api/camera/startVideoRecord");
-            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 1280, height = 720, framerate = 30, duration = 10});
-            //return Ok(new { content = "USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side });
+            string schemaText = Direction + " " + Deformation + " " + PauseDuration + " " + Side;
+            Schema experimentSchema = _schemaRepository.GetAll().FirstOrDefault(s => s.Text == schemaText);
+
+            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 1280, height = 720, framerate = 30, duration = 10, experimentId = experimentSchema.Id});
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="USBPort">Номер ком порта</param>
+        /// <param name="ExperimentId">Id эксперимента из БД</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("setCommandsByExperimentId")]
+        public IActionResult SetCommandByExperementId(string USBPort, int ExperimentId)
+        {
+            //Console.WriteLine("USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side);
+            try
+            {
+                SerialPort serialPort = new SerialPort();
+
+                serialPort.PortName = USBPort;
+                serialPort.BaudRate = 9600;
+                serialPort.Open();
+
+                //("Direction Deformation Duration")
+                Schema experimentSchema = _schemaRepository.Get(ExperimentId);
+                string[] schemaSplittedText = experimentSchema.Text.Split(" ");
+                serialPort.Write(schemaSplittedText[0] + " " + schemaSplittedText[1] + " " + schemaSplittedText[2] + " " + Int32.Parse(schemaSplittedText[3]) * 2);
+
+                serialPort.Close();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+
+            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 1280, height = 720, framerate = 30, duration = 10, experimentId = ExperimentId });
         }
 
     }

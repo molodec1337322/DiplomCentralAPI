@@ -10,12 +10,14 @@ namespace DiplomCentralAPI.Controllers
     public class CameraController : Controller
     {
         private readonly IRepository<Schema> _schemaRepository;
+        private readonly IRepository<Experiment> _experimentRepository;
         private readonly IConfiguration _appConfiguration;
         private readonly IWebHostEnvironment _appEnviroment;
 
-        public CameraController(IRepository<Schema> schemaRepo, IConfiguration appConfiguration, IWebHostEnvironment appEnviroment)
+        public CameraController(IRepository<Schema> schemaRepo, IRepository<Experiment> experimentRepo, IConfiguration appConfiguration, IWebHostEnvironment appEnviroment)
         {
             _schemaRepository = schemaRepo;
+            _experimentRepository = experimentRepo;
             _appConfiguration = appConfiguration;
             _appEnviroment = appEnviroment;
         }
@@ -31,7 +33,7 @@ namespace DiplomCentralAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("startVideoRecord")]
-        public IActionResult StartVideoRecord(int cameraId, int width, int height, int framerate, int duration)
+        public async Task<IActionResult> StartVideoRecord(int cameraId, int width, int height, int framerate, int duration, int experimentId)
         {
             var cameraScriptPath = Path.Combine(_appEnviroment.ContentRootPath, "Cameras", "Camera1", "videoRecord.py");
             if (!System.IO.File.Exists(cameraScriptPath))
@@ -47,22 +49,12 @@ namespace DiplomCentralAPI.Controllers
             var videoRecordVideoFile = Path.Combine(videoRecordSavePath, Guid.NewGuid().ToString() + ".avi");
 
             string urlToStopRecord = "https://" + Request.Host.Host + ":" + Request.Host.Port + "/api/camera/stopVideoRecord";
+
+            Experiment newExperiment = new Experiment();
+            newExperiment.StartedAt= DateTime.UtcNow;
+
             try
             {
-                /*
-                var engine = Python.CreateEngine();
-                var scope = engine.CreateScope();
-
-                ICollection<string> searchPaths = engine.GetSearchPaths();
-                searchPaths.Add("C:\\Python34\\Lib");
-                searchPaths.Add("C:\\Python34\\Lib\\site-packages");
-                engine.SetSearchPaths(searchPaths);
-
-                engine.ExecuteFile(cameraScriptPath, scope);
-                var recordVideo = scope.GetVariable("record_video");
-                var result = recordVideo(videoRecordSavePath, false, width, height, framerate, duration, urlToStopRecord);
-                */
-
                 char[] splitter = { '\r' };
 
                 Process process = new Process();
@@ -85,9 +77,18 @@ namespace DiplomCentralAPI.Controllers
             catch(Exception ex)
             {
                 Console.Write(ex.ToString());
-                return BadRequest(new { error = ex.Message });
+                return BadRequest(new { error = ex.Message, traceback = ex.StackTrace });
             }
-            
+
+            newExperiment.EndedAt = DateTime.UtcNow;
+            newExperiment.VideoPath = videoRecordVideoFile;
+            newExperiment.ResultPath = videoRecordSavePath;
+            newExperiment.SchemaId = experimentId;
+            newExperiment.HandlerId = null;
+
+            _experimentRepository.Add(newExperiment);
+            await _experimentRepository.SaveChanges();
+  
             return Ok();
         }
 

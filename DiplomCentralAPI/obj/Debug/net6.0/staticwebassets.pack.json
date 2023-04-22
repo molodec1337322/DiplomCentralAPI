@@ -1,8 +1,24 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\c6c1845c-2f51-4932-bb08-ec738a077bc6.avi",
-      "PackagePath": "staticwebassets\\Videos\\c6c1845c-2f51-4932-bb08-ec738a077bc6.avi"
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\4ab73d6a-aff8-4d27-9fe2-a89a13e8981f.avi",
+      "PackagePath": "staticwebassets\\Videos\\4ab73d6a-aff8-4d27-9fe2-a89a13e8981f.avi"
+    },
+    {
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\5c9c1d3a-176e-4cba-a8fe-379ab46f9b9d.avi",
+      "PackagePath": "staticwebassets\\Videos\\5c9c1d3a-176e-4cba-a8fe-379ab46f9b9d.avi"
+    },
+    {
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\6b9b8b92-def6-4844-b15d-9d9c7676c3df.avi",
+      "PackagePath": "staticwebassets\\Videos\\6b9b8b92-def6-4844-b15d-9d9c7676c3df.avi"
+    },
+    {
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\d7b7a93f-baf5-4e51-bd22-e4d092b3aa24.avi",
+      "PackagePath": "staticwebassets\\Videos\\d7b7a93f-baf5-4e51-bd22-e4d092b3aa24.avi"
+    },
+    {
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\f954c252-dbf0-4b40-9f3f-0430164fbe67.avi",
+      "PackagePath": "staticwebassets\\Videos\\f954c252-dbf0-4b40-9f3f-0430164fbe67.avi"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.DiplomCentralAPI.Microsoft.AspNetCore.StaticWebAssets.props",

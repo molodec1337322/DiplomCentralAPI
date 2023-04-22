@@ -66,7 +66,7 @@ def record_video(path_to_vid, is_grayscale: bool, resolution_x: int, resolution_
 
     capture = cv2.VideoCapture(0 + cv2.CAP_DSHOW)
 
-    fourcc = cv2.VideoWriter_fourcc(-1)
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')
     videoWriter = cv2.VideoWriter(path_to_vid, fourcc, framerate, (resolution_x, resolution_y))
 
     timer_callback = TimerCallback()
