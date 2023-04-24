@@ -51,14 +51,12 @@ namespace DiplomCentralAPI.Controllers
 
             Experiment newExperiment = new Experiment();
             newExperiment.StartedAt = DateTime.UtcNow;
-            newExperiment.EndedAt = DateTime.UtcNow;
             newExperiment.VideoPath = videoRecordVideoFile;
             newExperiment.ResultPath = "";
             newExperiment.SchemaId = experimentId;
             newExperiment.HandlerId = null;
 
-            _experimentRepository.Add(newExperiment);
-            _experimentRepository.SaveChanges();
+            
 
             string clientAddr = Request.GetEncodedUrl();
 
@@ -90,6 +88,10 @@ namespace DiplomCentralAPI.Controllers
                 Console.Write(ex.ToString());
                 return BadRequest(new { error = ex.Message, traceback = ex.StackTrace });
             }
+
+            newExperiment.EndedAt = DateTime.UtcNow;
+            _experimentRepository.Add(newExperiment);
+            _experimentRepository.SaveChanges();
 
             return Ok(new {callback = "videoRecordOk"});
         }

@@ -12,10 +12,12 @@ namespace DiplomCentralAPI.Controllers
     public class ExperimentsController : Controller
     {
         private readonly IRepository<Schema> _schemaRepository;
+        private readonly IRepository<Experiment> _experimentsRepository;
 
-        public ExperimentsController(IRepository<Schema> schemaRepo) 
+        public ExperimentsController(IRepository<Schema> schemaRepo, IRepository<Experiment> experimentRepo) 
         {
             _schemaRepository = schemaRepo;
+            _experimentsRepository = experimentRepo;
         }
 
         /// <summary>
@@ -61,6 +63,18 @@ namespace DiplomCentralAPI.Controllers
                 return BadRequest(ex.Message);
             }
             
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("getAllExperimentsList")]
+        public async Task<IActionResult> GetAllExperementsList()
+        {
+            List<Experiment> data = _experimentsRepository.GetAll().ToList();
+            return Ok(data);
         }
 
         public record ExperimentData(string Name, string Data);
