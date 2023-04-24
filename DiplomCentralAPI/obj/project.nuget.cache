@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CtBAIKSeYFkjagzsAOzGsaHXdOMJiGv3SzVZg0j5PFHfwb5sOI0VRZ54h1FOEAYOMMHfjNXfPHxnSMVEX553kg==",
+  "dgSpecHash": "iUuZ81KEQ7jFSZD4Uk8qBT1Z8cUdlFBN0SFw9M2bkmCeG2P4RTouxhyMkTqTYkTgi+uA5+L7UDagYxerNLrV+g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\DiplomCentralAPI.csproj",
   "expectedPackageFiles": [
@@ -34,7 +34,7 @@
     "C:\\Users\\Molodec\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Molodec\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
     "C:\\Users\\Molodec\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
-    "C:\\Users\\Molodec\\.nuget\\packages\\microsoft.aspnetcore.httpoverrides\\2.0.0\\microsoft.aspnetcore.httpoverrides.2.0.0.nupkg.sha512",
+    "C:\\Users\\Molodec\\.nuget\\packages\\microsoft.aspnetcore.httpoverrides\\2.2.0\\microsoft.aspnetcore.httpoverrides.2.2.0.nupkg.sha512",
     "C:\\Users\\Molodec\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\2.0.0\\microsoft.aspnetcore.jsonpatch.2.0.0.nupkg.sha512",
     "C:\\Users\\Molodec\\.nuget\\packages\\microsoft.aspnetcore.localization\\2.0.0\\microsoft.aspnetcore.localization.2.0.0.nupkg.sha512",
     "C:\\Users\\Molodec\\.nuget\\packages\\microsoft.aspnetcore.mvc\\2.0.0\\microsoft.aspnetcore.mvc.2.0.0.nupkg.sha512",

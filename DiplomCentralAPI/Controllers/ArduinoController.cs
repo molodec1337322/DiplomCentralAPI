@@ -3,12 +3,9 @@ using ArduinoUploader.Hardware;
 using DiplomCentralAPI.Controllers.Utils;
 using DiplomCentralAPI.Data.Interfaces;
 using DiplomCentralAPI.Data.Models;
-using DiplomCentralAPI.Data.Repository.Postgres;
 using Microsoft.AspNetCore.Mvc;
 using System.IO.Ports;
-using System.Windows;
-using static IronPython.Modules._ast;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace DiplomCentralAPI.Controllers
 {
@@ -58,6 +55,7 @@ namespace DiplomCentralAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("setCommands")]
+        //[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
         public IActionResult SetCommands(string USBPort, int Direction, int Deformation, int PauseDuration, short Side)
         {
             //Console.WriteLine("USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side);
@@ -82,7 +80,11 @@ namespace DiplomCentralAPI.Controllers
             string schemaText = Direction + " " + Deformation + " " + PauseDuration + " " + Side;
             Schema experimentSchema = _schemaRepository.GetAll().FirstOrDefault(s => s.Text == schemaText);
 
-            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 1280, height = 720, framerate = 30, duration = 10, experimentId = experimentSchema.Id});
+            Double duration = 3.0;
+
+            int durationInt = (int)Math.Ceiling(duration);
+
+            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 1280, height = 720, framerate = 30, duration = durationInt, experimentId = experimentSchema.Id});
         }
 
         /// <summary>
@@ -116,7 +118,7 @@ namespace DiplomCentralAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
 
-            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 1280, height = 720, framerate = 30, duration = 10, experimentId = ExperimentId });
+            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 1280, height = 720, framerate = 30, duration = 5, experimentId = ExperimentId });
         }
 
     }

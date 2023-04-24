@@ -1,5 +1,6 @@
 ﻿using DiplomCentralAPI.Data.Interfaces;
 using DiplomCentralAPI.Data.Models;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql.Internal.TypeHandlers;
 using System.Diagnostics;
@@ -48,10 +49,21 @@ namespace DiplomCentralAPI.Controllers
             }
             var videoRecordVideoFile = Path.Combine(videoRecordSavePath, Guid.NewGuid().ToString() + ".avi");
 
-            string urlToStopRecord = "https://" + Request.Host.Host + ":" + Request.Host.Port + "/api/camera/stopVideoRecord";
-
             Experiment newExperiment = new Experiment();
-            newExperiment.StartedAt= DateTime.UtcNow;
+            newExperiment.StartedAt = DateTime.UtcNow;
+            newExperiment.EndedAt = DateTime.UtcNow;
+            newExperiment.VideoPath = videoRecordVideoFile;
+            newExperiment.ResultPath = "";
+            newExperiment.SchemaId = experimentId;
+            newExperiment.HandlerId = null;
+
+            _experimentRepository.Add(newExperiment);
+            _experimentRepository.SaveChanges();
+
+            string clientAddr = Request.GetEncodedUrl();
+
+
+            string urlToStopRecord = "https://" + Request.Host.Host + ":" + Request.Host.Port + "/api/camera/stopVideoRecord?" + "cameraId=" + cameraId + "&experimentId=" + newExperiment.Id;
 
             try
             {
@@ -62,8 +74,7 @@ namespace DiplomCentralAPI.Controllers
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.UseShellExecute = false;
 
-                // call hello.py to concatenate passed parameters
-                process.StartInfo.Arguments = string.Concat(cameraScriptPath, " ", videoRecordVideoFile, " ", 0, " ", width.ToString(), " ", height.ToString(), " ", framerate.ToString(), " ", duration.ToString(), " ", urlToStopRecord, " ", cameraId.ToString());
+                process.StartInfo.Arguments = string.Concat(cameraScriptPath, " ", videoRecordVideoFile, " ", 0, " ", width.ToString(), " ", height.ToString(), " ", framerate.ToString(), " ", duration.ToString(), " ", cameraId.ToString());
                 process.Start();
 
                 StreamReader sReader = process.StandardOutput;
@@ -80,23 +91,7 @@ namespace DiplomCentralAPI.Controllers
                 return BadRequest(new { error = ex.Message, traceback = ex.StackTrace });
             }
 
-            newExperiment.EndedAt = DateTime.UtcNow;
-            newExperiment.VideoPath = videoRecordVideoFile;
-            newExperiment.ResultPath = videoRecordSavePath;
-            newExperiment.SchemaId = experimentId;
-            newExperiment.HandlerId = null;
-
-            _experimentRepository.Add(newExperiment);
-            await _experimentRepository.SaveChanges();
-  
-            return Ok();
-        }
-
-        [HttpGet]
-        [Route("stopVideoRecord")]
-        public IActionResult StopVideoRecord(int cameraId)
-        {
-            return Ok();
+            return Ok(new {callback = "videoRecordOk"});
         }
     }
 }
