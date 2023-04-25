@@ -21,6 +21,13 @@ namespace DiplomCentralAPI.Controllers
         }
 
         [HttpGet]
+        [Route("getAllAnalyzators")]
+        public async Task<IActionResult> GetAllAnalyzators(string analyzerName, int experimentId)
+        {
+            return Ok();
+        }
+
+        [HttpGet]
         [Route("analyze")]
         public async Task<IActionResult> StartAnalyze(string analyzerName, int experimentId)
         {
