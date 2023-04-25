@@ -20,6 +20,11 @@ namespace DiplomCentralAPI.Controllers
             _appEnviroment = appEnviroment;
         }
 
-
+        [HttpGet]
+        [Route("analyze")]
+        public async Task<IActionResult> StartAnalyze(string analyzerName, int experimentId)
+        {
+            return Ok();
+        }
     }
 }
