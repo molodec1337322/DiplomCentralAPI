@@ -93,7 +93,7 @@ namespace DiplomCentralAPI.Controllers
             _experimentRepository.Add(newExperiment);
             _experimentRepository.SaveChanges();
 
-            return Ok(new {callback = "videoRecordOk"});
+            return Ok("videoRecordOk");
         }
     }
 }

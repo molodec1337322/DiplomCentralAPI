@@ -52,7 +52,7 @@ namespace DiplomCentralAPI.Controllers
         public async Task<IActionResult> StartAnalyze(string analyzerName, int experimentId)
         {
             var analyzatorScriptPath = Path.Combine(_appEnviroment.ContentRootPath, "analyzators", analyzerName, "main.py");
-            if (!Directory.Exists(analyzatorScriptPath))
+            if (!System.IO.File.Exists(analyzatorScriptPath))
             {
                 return BadRequest(new { error = "Analyzator script not found" });
             }
@@ -93,7 +93,7 @@ namespace DiplomCentralAPI.Controllers
                 return BadRequest(new { error = ex.Message, traceback = ex.StackTrace });
             }
 
-            return Ok();
+            return Ok("analyzeOk");
         }
     }
 }
