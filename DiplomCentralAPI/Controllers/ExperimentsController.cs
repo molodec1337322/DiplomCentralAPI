@@ -77,11 +77,6 @@ namespace DiplomCentralAPI.Controllers
             return Ok(data);
         }
 
-        public async Task<IActionResult> StartAnalyze(string analyzerName, int experimentId)
-        {
-
-        }
-
         public record ExperimentData(string Name, string Data);
         public record NewSchemaData(string description, string videoSaveFolderPath, string schemaText);
     }

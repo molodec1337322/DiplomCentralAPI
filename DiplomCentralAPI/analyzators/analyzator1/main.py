@@ -1,3 +1,5 @@
+import sys
+
 import av
 import math
 import numpy as np
@@ -281,13 +283,18 @@ def find_parameters_values(image):
     return parameter_value_2, parameter_value_4, parameter_value_6, parameter_value_8
 
 
-grayscale = upload_video('-max-_min_max_max.mp4')[0]
-num_rows, num_cols = grayscale.shape
-for i in range(num_rows):
-    for j in range(num_cols):
-        if grayscale[i][j] > 0.09:
-            grayscale[i][j] = 1
-        else:
-            grayscale[i][j] = 0
 
-print(find_parameters_values(grayscale))
+
+
+if __name__ == "__main__":
+
+    grayscale = upload_video(
+        str(sys.argv[1])
+    )[0]
+    num_rows, num_cols = grayscale.shape
+    for i in range(num_rows):
+        for j in range(num_cols):
+            if grayscale[i][j] > 0.09:
+                grayscale[i][j] = 1
+            else:
+                grayscale[i][j] = 0
