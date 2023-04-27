@@ -72,7 +72,7 @@ namespace DiplomCentralAPI.Controllers
                 char[] splitter = { '\r' };
 
                 Process process = new Process();
-                process.StartInfo.FileName = "python.exe";
+                process.StartInfo.FileName = "py.exe";
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.UseShellExecute = false;
 
