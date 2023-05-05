@@ -54,14 +54,7 @@ namespace DiplomCentralAPI.Controllers
             newExperiment.VideoPath = videoRecordVideoFile;
             newExperiment.ResultPath = "";
             newExperiment.SchemaId = experimentId;
-            newExperiment.HandlerId = null;
-
-            
-
-            string clientAddr = Request.GetEncodedUrl();
-
-
-            string urlToStopRecord = "https://" + Request.Host.Host + ":" + Request.Host.Port + "/api/camera/stopVideoRecord?" + "cameraId=" + cameraId + "&experimentId=" + newExperiment.Id;
+            newExperiment.MyHandlerId = null;
 
             try
             {

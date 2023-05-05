@@ -49,7 +49,6 @@ namespace DiplomCentralAPI.Controllers
 
                 Schema newSchema = new Schema();
                 newSchema.Description = newSchemaData.description;
-                newSchema.VideoPath = newSchemaData.videoSaveFolderPath;
                 newSchema.Text = newSchemaData.schemaText;
                 newSchema.CreatedAt = DateTime.UtcNow;
 

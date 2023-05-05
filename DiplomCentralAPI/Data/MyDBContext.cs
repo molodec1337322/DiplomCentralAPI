@@ -7,10 +7,10 @@ namespace DiplomCentralAPI.Data
     {
         public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)  
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
-        public DbSet<Handler> Handlers { get; set; }
+        public DbSet<MyHandler> MyHandlers { get; set; }
         public DbSet<Schema> Schemas { get; set; }
         public DbSet<Experiment> Experiments { get; set; }
         public DbSet<Photo> Photos { get; set; }

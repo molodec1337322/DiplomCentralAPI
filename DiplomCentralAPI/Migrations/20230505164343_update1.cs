@@ -7,13 +7,13 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DiplomCentralAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Update1 : Migration
+    public partial class update1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Handlers",
+                name: "MyHandlers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -24,7 +24,7 @@ namespace DiplomCentralAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Handlers", x => x.Id);
+                    table.PrimaryKey("PK_MyHandlers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -35,7 +35,6 @@ namespace DiplomCentralAPI.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Description = table.Column<string>(type: "text", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    VideoPath = table.Column<string>(type: "text", nullable: false),
                     Text = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
@@ -54,17 +53,16 @@ namespace DiplomCentralAPI.Migrations
                     VideoPath = table.Column<string>(type: "text", nullable: false),
                     ResultPath = table.Column<string>(type: "text", nullable: false),
                     SchemaId = table.Column<int>(type: "integer", nullable: false),
-                    HandlerId = table.Column<int>(type: "integer", nullable: false)
+                    MyHandlerId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Experiments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Experiments_Handlers_HandlerId",
-                        column: x => x.HandlerId,
-                        principalTable: "Handlers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Experiments_MyHandlers_MyHandlerId",
+                        column: x => x.MyHandlerId,
+                        principalTable: "MyHandlers",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Experiments_Schemas_SchemaId",
                         column: x => x.SchemaId,
@@ -95,9 +93,9 @@ namespace DiplomCentralAPI.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Experiments_HandlerId",
+                name: "IX_Experiments_MyHandlerId",
                 table: "Experiments",
-                column: "HandlerId");
+                column: "MyHandlerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Experiments_SchemaId",
@@ -120,7 +118,7 @@ namespace DiplomCentralAPI.Migrations
                 name: "Experiments");
 
             migrationBuilder.DropTable(
-                name: "Handlers");
+                name: "MyHandlers");
 
             migrationBuilder.DropTable(
                 name: "Schemas");

@@ -1,6 +1,6 @@
 ﻿namespace DiplomCentralAPI.Data.Models
 {
-    public class Handler
+    public class MyHandler
     {
         public int Id { get; set; }
         public string ScriptPath { get; set; }
