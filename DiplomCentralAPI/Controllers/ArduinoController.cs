@@ -44,6 +44,38 @@ namespace DiplomCentralAPI.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        [Route("setCommands")]
+        public IActionResult SetArduinoInit(string USBPort, int Direction, int Deformation, int PauseDuration, short Side)
+        {
+            try
+            {
+                SerialPort serialPort = new SerialPort();
+
+                serialPort.PortName = USBPort;
+                serialPort.BaudRate = 9600;
+                serialPort.Open();
+
+                //("Direction Deformation Duration")
+                serialPort.Write(0 + " " + 0 + " " + 0 + " " + -2);
+
+                serialPort.Close();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+
+            string schemaText = Direction + " " + Deformation + " " + PauseDuration + " " + Side;
+            Schema experimentSchema = _schemaRepository.GetAll().FirstOrDefault(s => s.Text == schemaText);
+
+            Double duration = 5.0;
+
+            int durationInt = (int)Math.Ceiling(duration);
+
+            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 640, height = 480, framerate = 30, duration = durationInt, experimentId = experimentSchema.Id });
+        }
+
         /// <summary>
         /// 
         /// </summary>
