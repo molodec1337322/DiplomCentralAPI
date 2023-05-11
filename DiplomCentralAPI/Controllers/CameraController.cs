@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql.Internal.TypeHandlers;
 using System.Diagnostics;
+using System.IO.Ports;
 
 namespace DiplomCentralAPI.Controllers
 {
@@ -34,7 +35,7 @@ namespace DiplomCentralAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("startVideoRecord")]
-        public async Task<IActionResult> StartVideoRecord(int cameraId, int width, int height, int framerate, int duration, int experimentId)
+        public async Task<IActionResult> StartVideoRecord(int cameraId, int width, int height, int framerate, int duration, int experimentId, int USBPort)
         {
             var cameraScriptPath = Path.Combine(_appEnviroment.ContentRootPath, "Cameras", "Camera1", "videoRecord.py");
             if (!System.IO.File.Exists(cameraScriptPath))
@@ -56,6 +57,8 @@ namespace DiplomCentralAPI.Controllers
             newExperiment.SchemaId = experimentId;
             newExperiment.MyHandlerId = null;
 
+            var cameraStartedCallbackUrl = "https://" + Request.Host.Host + ":" + Request.Host.Port + "/api/arduino/setCommandsByExperimentId?" + "USBPort=" + USBPort + "&experimentId=" + experimentId;
+
             try
             {
                 char[] splitter = { '\r' };
@@ -65,14 +68,14 @@ namespace DiplomCentralAPI.Controllers
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.UseShellExecute = false;
 
-                process.StartInfo.Arguments = string.Concat(cameraScriptPath, " ", videoRecordVideoFile, " ", 0, " ", width.ToString(), " ", height.ToString(), " ", framerate.ToString(), " ", duration.ToString(), " ", cameraId.ToString());
+                process.StartInfo.Arguments = string.Concat(cameraScriptPath, " ", videoRecordVideoFile, " ", 0, " ", width.ToString(), " ", height.ToString(), " ", framerate.ToString(), " ", duration.ToString(), " ", cameraId.ToString(), " ", cameraStartedCallbackUrl);
+
+                process.OutputDataReceived += (sender, e) => {
+                        Console.WriteLine("Received output: " + e.Data);
+                };
+
                 process.Start();
-
-                StreamReader sReader = process.StandardOutput;
-                string[] output = sReader.ReadToEnd().Split(splitter);
-
-                foreach (string s in output)
-                    Console.WriteLine(s);
+                process.BeginOutputReadLine();
 
                 process.WaitForExit();
             }

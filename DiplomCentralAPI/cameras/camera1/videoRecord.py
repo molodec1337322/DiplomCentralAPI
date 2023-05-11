@@ -1,9 +1,9 @@
 import sys
-
 import cv2
+import requests
 
 
-def record_video(path_to_vid, is_grayscale: bool, resolution_x: int, resolution_y: int, framerate, duration_sec, camera_id):
+def record_video(path_to_vid, is_grayscale: bool, resolution_x: int, resolution_y: int, framerate, duration_sec, camera_id, callback_url):
 
     capture = cv2.VideoCapture(0 + cv2.CAP_DSHOW)
 
@@ -13,7 +13,15 @@ def record_video(path_to_vid, is_grayscale: bool, resolution_x: int, resolution_
     frames_count = framerate * duration_sec
     frames_counter = 0
 
+    isFlagged = False
+
     while frames_counter < frames_count:
+
+        if not isFlagged:
+            print("cameraStarted")
+            isFlagged = True
+            r = requests.get(callback_url, verify=False)
+
         ret, frame = capture.read()
         if ret:
             videoWriter.write(frame)
@@ -30,4 +38,4 @@ def record_video(path_to_vid, is_grayscale: bool, resolution_x: int, resolution_
 
 if __name__ == "__main__":
 
-    record_video(sys.argv[1], bool(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6]), int(sys.argv[7]))
+    record_video(sys.argv[1], bool(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6]), int(sys.argv[7]), str(sys.argv[8]))

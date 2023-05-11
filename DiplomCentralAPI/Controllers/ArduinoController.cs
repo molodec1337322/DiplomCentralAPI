@@ -45,7 +45,7 @@ namespace DiplomCentralAPI.Controllers
         }
 
         [HttpGet]
-        [Route("setCommands")]
+        [Route("setArduino")]
         public IActionResult SetArduinoInit(string USBPort, int Direction, int Deformation, int PauseDuration, short Side)
         {
             try
@@ -69,11 +69,11 @@ namespace DiplomCentralAPI.Controllers
             string schemaText = Direction + " " + Deformation + " " + PauseDuration + " " + Side;
             Schema experimentSchema = _schemaRepository.GetAll().FirstOrDefault(s => s.Text == schemaText);
 
-            Double duration = 5.0;
+            Double duration = 3.0;
 
             int durationInt = (int)Math.Ceiling(duration);
 
-            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 640, height = 480, framerate = 30, duration = durationInt, experimentId = experimentSchema.Id });
+            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 640, height = 480, framerate = 30, duration = durationInt, experimentId = experimentSchema.Id, USBPort = USBPort });
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace DiplomCentralAPI.Controllers
 
             int durationInt = (int)Math.Ceiling(duration);
 
-            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 640, height = 480, framerate = 30, duration = durationInt, experimentId = experimentSchema.Id});
+            return Ok();
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace DiplomCentralAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
 
-            return RedirectToAction("StartVideoRecord", "Camera", new { cameraId = 0, width = 1280, height = 720, framerate = 30, duration = 5, experimentId = ExperimentId });
+            return Ok();
         }
 
     }
