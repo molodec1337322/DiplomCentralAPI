@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="analyzators\analyzator2\" />
     <Folder Include="wwwroot\AnalyzeResult\" />
   </ItemGroup>
 
