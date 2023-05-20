@@ -1,9 +1,7 @@
 ﻿using DiplomCentralAPI.Data.Interfaces;
 using DiplomCentralAPI.Data.Models;
 using Microsoft.AspNetCore.Mvc;
-using static IronPython.Modules._ast;
 using System.Diagnostics;
-using IronPython.Runtime.Operations;
 
 namespace DiplomCentralAPI.Controllers
 {
@@ -40,7 +38,7 @@ namespace DiplomCentralAPI.Controllers
                 if(System.IO.File.Exists(Path.Combine(dir, "main.py")))
                 {
                     //analyzators.Add(Path.GetDirectoryName(dir));
-                    analyzators.Add(dir.split("\\").Last().ToString());
+                    analyzators.Add(dir.Split("\\").Last().ToString());
                 }
             }
 
@@ -65,7 +63,10 @@ namespace DiplomCentralAPI.Controllers
 
             Experiment experiment = _experimentRepository.Get(experimentId);
 
-            var resultFile = Path.Combine(resultsSavePath, experiment.VideoPath.Split("\\").Last().Split(".").First() + ".txt");
+            var timeStarted = System.DateTime.UtcNow;
+            var timeStr = timeStarted.Day + "-" + timeStarted.Month + "-" + timeStarted.Year + "_" + timeStarted.Hour + "-" + timeStarted.Minute + "-" + timeStarted.Second;
+            var filename = experiment.VideoPath.Split("\\").Last().Split(".").First() + "_by_" + analyzerName + timeStr;
+            var resultFile = Path.Combine(resultsSavePath, timeStr.Replace(" ", "_") + ".txt");
 
             try
             {
@@ -76,7 +77,7 @@ namespace DiplomCentralAPI.Controllers
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.UseShellExecute = false;
 
-                process.StartInfo.Arguments = string.Concat(analyzatorScriptPath, " ", experiment.VideoPath);
+                process.StartInfo.Arguments = string.Concat(analyzatorScriptPath, " ", experiment.VideoPath, " ", resultFile);
                 process.Start();
 
                 StreamReader sReader = process.StandardOutput;
@@ -86,6 +87,10 @@ namespace DiplomCentralAPI.Controllers
                     Console.WriteLine(s);
 
                 process.WaitForExit();
+
+                experiment.ResultPath = resultFile;
+                _experimentRepository.Update(experiment);
+                _experimentRepository.SaveChanges();
             }
             catch (Exception ex)
             {

@@ -19,6 +19,7 @@ cadr=int(sys.argv[2])  # второй аргумент - номер кадра, 
 """
 
 video_path = sys.argv[1] # нулевой аргумент - путь до видео - str
+result_save_path = sys.argv[2]
 center_path = os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'center')
 min_path = os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'min')
 max_path = os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'max')
@@ -73,7 +74,7 @@ max_x = int(a[0])
 global max_y
 max_y = int(a[1])
 
-grayscale = upload_video(vide_opath)[cadr]   # раскомментить когда будешь запускать через командную строку
+grayscale = upload_video(vide_opath)[150]   # раскомментить когда будешь запускать через командную строку
 
 amount = 0
 num_rows, num_cols = grayscale.shape
@@ -91,5 +92,5 @@ with open("result", mode = "w") as f:  # закомментить когда б�
     f.write(str(amount) + "," + str(((amount/((max_y - min_y) * (max_x - min_x)))*100)))  # закомментить когда будешь запускать через командную строку
 '''
 
-with open(full_S_path, mode = "w") as f:  # раскомментить когда будешь запускать через командную строку
+with open(result_save_path, mode = "w") as f:  # раскомментить когда будешь запускать через командную строку
     f.write(str(amount) + "\n" + str(((amount/(num_rows*num_cols))*100)))  # раскомментить когда будешь запускать через командную строку

@@ -12,7 +12,8 @@ import os
 
 
 
-video_path = sys.argv[1]  # нулевой аргумент - путь до видео - str
+video_path = sys.argv[1]
+result_save_path = sys.argv[2]# нулевой аргумент - путь до видео - str
 center_path = os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'center')
 min_path = os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'min')
 max_path = os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'max')
@@ -52,7 +53,7 @@ def upload_video(path: str):
 
 #grayscale = upload_video('C:\\labs\\7sem\\diploma\\results_decoding\\classic_lines_algo\\2022-05-27 17-03-46 (online-video-cutter.com).mp4')[0]  # закомментить когда будешь запускать через командную строку
 
-grayscale = upload_video(video_path)[0]   # раскомментить когда будешь запускать через командную строку
+grayscale = upload_video(video_path)[150]   # раскомментить когда будешь запускать через командную строку
 
 
 file1 = open(center_path, "r")
@@ -135,7 +136,7 @@ for i in range(min_x, max_x):
 #print(S1, S2, S3, S4, S5, S6, S7, S8)
 #print(str(S1) + "," + str(((S1/((max_y - min_y) * (max_x - min_x)))*100)))
 
-with open(partitial_S_path, mode = "w") as f:  # закомментить когда будешь запускать через командную строку
+with open(result_save_path, mode = "w") as f:  # закомментить когда будешь запускать через командную строку
     f.write(str(S1) + "," + str(((S1/((max_y - min_y) * (max_x - min_x)))*100)) + "\n"
             + str(S2) + "," + str(((S2/((max_y - min_y) * (max_x - min_x)))*100)) + "\n" +
             str(S3) + "," + str(((S3/((max_y - min_y) * (max_x - min_x)))*100)) + "\n" +

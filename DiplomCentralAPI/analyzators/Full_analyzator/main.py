@@ -14,6 +14,7 @@ import os
 
 
 video_path=sys.argv[1]  # нулевой аргумент - путь до видео - str
+result_save_path = sys.argv[2]
 center_path = os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'center')
 min_path = os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'min')
 max_path = os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'max')
@@ -45,7 +46,7 @@ def upload_video(path: str):
 
 #grayscale = upload_video('C:\\labs\\7sem\\diploma\\results_decoding\\classic_lines_algo\\2022-05-27 17-03-46 (online-video-cutter.com).mp4')[0]  # закомментить когда будешь запускать через командную строку
 
-grayscale = upload_video(video_path)[0]
+grayscale = upload_video(video_path)[5]
 # раскомментить когда будешь запускать через командную строку
 
 num_rows, num_cols = grayscale.shape
@@ -116,7 +117,7 @@ with open(max_path, mode = "w") as f:
   # раскомментить когда будешь запускать через командную строку
 
 print(os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'full_S.py'))
-subprocess.Popen(['py.exe', os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'full_S.py'), video_path], shell=True)
+subprocess.Popen(['py.exe', os.path.join(os.curdir, 'analyzators', 'Full_analyzator', 'full_S.py'), video_path, result_save_path], shell=True)
 
 
 

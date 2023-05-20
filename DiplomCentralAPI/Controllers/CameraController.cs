@@ -48,10 +48,15 @@ namespace DiplomCentralAPI.Controllers
                 //return BadRequest(new { error = "camera script not found" });
                 Directory.CreateDirectory(videoRecordSavePath);
             }
-            var videoRecordVideoFile = Path.Combine(videoRecordSavePath, Guid.NewGuid().ToString() + ".avi");
+
+            Schema schema = _schemaRepository.Get(experimentId);
+            var timeStarted = DateTime.UtcNow;
+            var timeStr = timeStarted.Day + "-" + timeStarted.Month + "-" + timeStarted.Year + "_" + timeStarted.Hour + "-" + timeStarted.Minute + "-" + timeStarted.Second;
+            var fileName = schema.Description + "_" + timeStr;
+            var videoRecordVideoFile = Path.Combine(videoRecordSavePath, fileName.Replace(" ", "_") + ".avi");
 
             Experiment newExperiment = new Experiment();
-            newExperiment.StartedAt = DateTime.UtcNow;
+            newExperiment.StartedAt = timeStarted;
             newExperiment.VideoPath = videoRecordVideoFile;
             newExperiment.ResultPath = "";
             newExperiment.SchemaId = experimentId;

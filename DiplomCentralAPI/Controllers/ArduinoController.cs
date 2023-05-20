@@ -69,7 +69,7 @@ namespace DiplomCentralAPI.Controllers
             string schemaText = Direction + " " + Deformation + " " + PauseDuration + " " + Side;
             Schema experimentSchema = _schemaRepository.GetAll().FirstOrDefault(s => s.Text == schemaText);
 
-            Double duration = 3.0;
+            Double duration = 7.0;
 
             int durationInt = (int)Math.Ceiling(duration);
 
