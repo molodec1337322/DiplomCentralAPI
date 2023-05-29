@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+rhRdiPWP6dJTUn68+kJsHJmGP26Rwim2M22SGs0Hds=",
+  "Hash": "IJjxDWGReMMGW0S0DkFaAqEXUx/sVQDTYjZPldWRlPo=",
   "Source": "DiplomCentralAPI",
   "BasePath": "_content/DiplomCentralAPI",
   "Mode": "Default",
@@ -17,6 +17,23 @@
   ],
   "Assets": [
     {
+      "Identity": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\AnalyzeResult\\20-5-2023_14-58-14.txt",
+      "SourceId": "DiplomCentralAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\",
+      "BasePath": "_content/DiplomCentralAPI",
+      "RelativePath": "AnalyzeResult/20-5-2023_14-58-14.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\AnalyzeResult\\20-5-2023_14-58-14.txt"
+    },
+    {
       "Identity": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\d16bcde1-60c5-448a-bf77-cb6380005d87.avi",
       "SourceId": "DiplomCentralAPI",
       "SourceType": "Discovered",
@@ -32,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Videos\\d16bcde1-60c5-448a-bf77-cb6380005d87.avi"
+    },
+    {
+      "Identity": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_20-5-2023_14-57-6.avi",
+      "SourceId": "DiplomCentralAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\",
+      "BasePath": "_content/DiplomCentralAPI",
+      "RelativePath": "Videos/New_Experiment_1_20-5-2023_14-57-6.avi",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Videos\\New_Experiment_1_20-5-2023_14-57-6.avi"
     }
   ]
 }

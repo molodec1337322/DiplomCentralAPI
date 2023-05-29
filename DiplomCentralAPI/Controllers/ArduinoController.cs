@@ -46,7 +46,7 @@ namespace DiplomCentralAPI.Controllers
 
         [HttpGet]
         [Route("setArduino")]
-        public IActionResult SetArduinoInit(string USBPort, int Direction, int Deformation, int PauseDuration, short Side)
+        public IActionResult SetArduinoInit(string USBPort, int side1, int side2, int side3, int side4, int side5, int side6, int side7, int side8, short isSaving)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace DiplomCentralAPI.Controllers
                 serialPort.Open();
 
                 //("Direction Deformation Duration")
-                serialPort.Write(0 + " " + 0 + " " + 0 + " " + -2);
+                serialPort.Write(0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + -2);
 
                 serialPort.Close();
             }
@@ -66,10 +66,10 @@ namespace DiplomCentralAPI.Controllers
                 return BadRequest(new { error = ex.Message });
             }
 
-            string schemaText = Direction + " " + Deformation + " " + PauseDuration + " " + Side;
+            string schemaText = side1 + " " + side2 + " " + side3 + " " + side4 + " " + side5 + " " + side6 + " " + side7 + " " + side8 + " " + isSaving;
             Schema experimentSchema = _schemaRepository.GetAll().FirstOrDefault(s => s.Text == schemaText);
 
-            Double duration = 7.0;
+            Double duration = 10.0;
 
             int durationInt = (int)Math.Ceiling(duration);
 
@@ -88,7 +88,7 @@ namespace DiplomCentralAPI.Controllers
         [HttpGet]
         [Route("setCommands")]
         //[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-        public IActionResult SetCommands(string USBPort, int Direction, int Deformation, int PauseDuration, short Side)
+        public IActionResult SetCommands(string USBPort, int side1, int side2, int side3, int side4, int side5, int side6, int side7, int side8, short isSaving)
         {
             //Console.WriteLine("USB port: " + USBPort + " Direction: " + Direction + " Deformation: " + Deformation + " Pause duration: " + PauseDuration + " Side: " + Side);
             try
@@ -112,7 +112,7 @@ namespace DiplomCentralAPI.Controllers
             string schemaText = Direction + " " + Deformation + " " + PauseDuration + " " + Side;
             Schema experimentSchema = _schemaRepository.GetAll().FirstOrDefault(s => s.Text == schemaText);
 
-            Double duration = 5.0;
+            Double duration = 3.0;
 
             int durationInt = (int)Math.Ceiling(duration);
 
