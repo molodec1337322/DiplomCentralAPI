@@ -57,7 +57,7 @@ namespace DiplomCentralAPI.Controllers
                 serialPort.Open();
 
                 //("Direction Deformation Duration")
-                serialPort.Write(0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + -2);
+                serialPort.Write(0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + 0 + " " + isSaving * 0);
 
                 serialPort.Close();
             }
@@ -69,7 +69,7 @@ namespace DiplomCentralAPI.Controllers
             string schemaText = side1 + " " + side2 + " " + side3 + " " + side4 + " " + side5 + " " + side6 + " " + side7 + " " + side8 + " " + isSaving;
             Schema experimentSchema = _schemaRepository.GetAll().FirstOrDefault(s => s.Text == schemaText);
 
-            Double duration = 10.0;
+            Double duration = 7.0;
 
             int durationInt = (int)Math.Ceiling(duration);
 
@@ -100,7 +100,7 @@ namespace DiplomCentralAPI.Controllers
                 serialPort.Open();
 
                 //("Direction Deformation Duration")
-                serialPort.Write(Direction + " " + Deformation + " " + PauseDuration + " " + Side * 2);
+                serialPort.Write(side1 + " " + side2 + " " + side3 + " " + side4 + " " + side5 + " " + side6 + " " + side7 + " " + side8 + " " + isSaving);
 
                 serialPort.Close();
             }
@@ -109,7 +109,7 @@ namespace DiplomCentralAPI.Controllers
                 return BadRequest(new {error = ex.Message });
             }
 
-            string schemaText = Direction + " " + Deformation + " " + PauseDuration + " " + Side;
+            string schemaText = side1 + " " + side2 + " " + side3 + " " + side4 + " " + side5 + " " + side6 + " " + side7 + " " + side8 + " " + isSaving;
             Schema experimentSchema = _schemaRepository.GetAll().FirstOrDefault(s => s.Text == schemaText);
 
             Double duration = 3.0;
@@ -141,7 +141,9 @@ namespace DiplomCentralAPI.Controllers
                 //("Direction Deformation Duration")
                 Schema experimentSchema = _schemaRepository.Get(ExperimentId);
                 string[] schemaSplittedText = experimentSchema.Text.Split(" ");
-                serialPort.Write(schemaSplittedText[0] + " " + schemaSplittedText[1] + " " + schemaSplittedText[2] + " " + Int32.Parse(schemaSplittedText[3]) * 2);
+                serialPort.Write(schemaSplittedText[0] + " " + schemaSplittedText[1] + " " + schemaSplittedText[2] + " " + schemaSplittedText[3] + " " +
+                    schemaSplittedText[4] + " " + schemaSplittedText[5] + " " + schemaSplittedText[6] + " " + schemaSplittedText[7] + " " +
+                    Int32.Parse(schemaSplittedText[8]));
 
                 serialPort.Close();
             }
