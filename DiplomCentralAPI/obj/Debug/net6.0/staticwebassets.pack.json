@@ -1,16 +1,20 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\AnalyzeResult\\20-5-2023_14-58-14.txt",
-      "PackagePath": "staticwebassets\\AnalyzeResult\\20-5-2023_14-58-14.txt"
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-52-56.avi",
+      "PackagePath": "staticwebassets\\Videos\\New_Experiment_1_1-6-2023_13-52-56.avi"
     },
     {
-      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_20-5-2023_14-57-6.avi",
-      "PackagePath": "staticwebassets\\Videos\\New_Experiment_1_20-5-2023_14-57-6.avi"
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-54-14.avi",
+      "PackagePath": "staticwebassets\\Videos\\New_Experiment_1_1-6-2023_13-54-14.avi"
     },
     {
-      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\d16bcde1-60c5-448a-bf77-cb6380005d87.avi",
-      "PackagePath": "staticwebassets\\Videos\\d16bcde1-60c5-448a-bf77-cb6380005d87.avi"
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-55-16.avi",
+      "PackagePath": "staticwebassets\\Videos\\New_Experiment_1_1-6-2023_13-55-16.avi"
+    },
+    {
+      "Id": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-56-34.avi",
+      "PackagePath": "staticwebassets\\Videos\\New_Experiment_1_1-6-2023_13-56-34.avi"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.DiplomCentralAPI.Microsoft.AspNetCore.StaticWebAssets.props",

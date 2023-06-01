@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\AnalyzeResult\20-5-2023_14-58-14.txt))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_1-6-2023_13-52-56.avi))">
       <SourceType>Package</SourceType>
       <SourceId>DiplomCentralAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/DiplomCentralAPI</BasePath>
-      <RelativePath>AnalyzeResult/20-5-2023_14-58-14.txt</RelativePath>
+      <RelativePath>Videos/New_Experiment_1_1-6-2023_13-52-56.avi</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,14 +14,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\AnalyzeResult\20-5-2023_14-58-14.txt))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_1-6-2023_13-52-56.avi))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\d16bcde1-60c5-448a-bf77-cb6380005d87.avi))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_1-6-2023_13-54-14.avi))">
       <SourceType>Package</SourceType>
       <SourceId>DiplomCentralAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/DiplomCentralAPI</BasePath>
-      <RelativePath>Videos/d16bcde1-60c5-448a-bf77-cb6380005d87.avi</RelativePath>
+      <RelativePath>Videos/New_Experiment_1_1-6-2023_13-54-14.avi</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -30,14 +30,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\d16bcde1-60c5-448a-bf77-cb6380005d87.avi))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_1-6-2023_13-54-14.avi))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_20-5-2023_14-57-6.avi))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_1-6-2023_13-55-16.avi))">
       <SourceType>Package</SourceType>
       <SourceId>DiplomCentralAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/DiplomCentralAPI</BasePath>
-      <RelativePath>Videos/New_Experiment_1_20-5-2023_14-57-6.avi</RelativePath>
+      <RelativePath>Videos/New_Experiment_1_1-6-2023_13-55-16.avi</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -46,7 +46,23 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_20-5-2023_14-57-6.avi))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_1-6-2023_13-55-16.avi))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_1-6-2023_13-56-34.avi))">
+      <SourceType>Package</SourceType>
+      <SourceId>DiplomCentralAPI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DiplomCentralAPI</BasePath>
+      <RelativePath>Videos/New_Experiment_1_1-6-2023_13-56-34.avi</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Videos\New_Experiment_1_1-6-2023_13-56-34.avi))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

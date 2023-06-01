@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "23SLpK8LXBMEk9lhBq0/yWsVpVbkrVHUje2YGE8cthU=",
+  "Hash": "dCLKlyg9yDrs10VHF2l3DphSkTH2JgyJ7pcUu9r+sao=",
   "Source": "DiplomCentralAPI",
   "BasePath": "_content/DiplomCentralAPI",
   "Mode": "Default",
@@ -15,5 +15,74 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-52-56.avi",
+      "SourceId": "DiplomCentralAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\",
+      "BasePath": "_content/DiplomCentralAPI",
+      "RelativePath": "Videos/New_Experiment_1_1-6-2023_13-52-56.avi",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-52-56.avi"
+    },
+    {
+      "Identity": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-54-14.avi",
+      "SourceId": "DiplomCentralAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\",
+      "BasePath": "_content/DiplomCentralAPI",
+      "RelativePath": "Videos/New_Experiment_1_1-6-2023_13-54-14.avi",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-54-14.avi"
+    },
+    {
+      "Identity": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-55-16.avi",
+      "SourceId": "DiplomCentralAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\",
+      "BasePath": "_content/DiplomCentralAPI",
+      "RelativePath": "Videos/New_Experiment_1_1-6-2023_13-55-16.avi",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-55-16.avi"
+    },
+    {
+      "Identity": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-56-34.avi",
+      "SourceId": "DiplomCentralAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Molodec\\source\\repos\\DiplomCentralAPI\\DiplomCentralAPI\\wwwroot\\",
+      "BasePath": "_content/DiplomCentralAPI",
+      "RelativePath": "Videos/New_Experiment_1_1-6-2023_13-56-34.avi",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Videos\\New_Experiment_1_1-6-2023_13-56-34.avi"
+    }
+  ]
 }

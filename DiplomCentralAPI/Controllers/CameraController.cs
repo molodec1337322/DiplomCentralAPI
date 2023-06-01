@@ -35,7 +35,7 @@ namespace DiplomCentralAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("startVideoRecord")]
-        public async Task<IActionResult> StartVideoRecord(int cameraId, int width, int height, int framerate, int duration, int experimentId, int USBPort)
+        public async Task<IActionResult> StartVideoRecord(int cameraId, int width, int height, int framerate, int duration, int experimentId, string USBPort)
         {
             var cameraScriptPath = Path.Combine(_appEnviroment.ContentRootPath, "Cameras", "Camera1", "videoRecord.py");
             if (!System.IO.File.Exists(cameraScriptPath))
